@@ -1,2 +1,217 @@
-<h1>TableView#table_fiche</h1>
-<p>Find me in app/views/table_view/table_fiche.html.erb</p>
+<section id="table_sheet_menu">
+	
+	<%= image_tag 'samples/SAMPLE_table_sheet_cover.jpg', :id=>'table_sheet_img_main' %>
+	
+	<div id="table_sheet_intro">
+		<div id="table_sheet_intro_host">
+			<%= image_tag 'samples/SAMPLE_host_mini.jpg' %>
+			<a href="#" class="calltoaction2">en savoir +</a>
+		</div>
+		<p>Julien vous propose</p>
+		<h3>nom de la table forcément alambiqué</h3>
+		<span id="table_sheet_format" class="diner">Diner</span>
+	</div>
+	
+	<ul id="table_sheet_menuliste">
+		<li>
+			<span class="format">Diner</span>
+			<h2>Titre du menu 1</h2>
+		</li>
+		<li>
+			<span class="format">Brunch</span>
+			<h2>Titre du menu 2</h2>
+		</li>
+	</ul>
+	
+	<ul id="table_sheet_menu_dishes">
+		<li>
+			<%= image_tag 'samples/SAMPLE_dish1.jpg' %>
+			<span class="dish_type">Entrée</span>
+			<h1>Nom du plat</h1>
+			<p class="dish_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet congue elit eget varius. Nulla quis neque orci. Suspendisse metus ante.</p>
+		</li>
+		<li>
+			<%= image_tag 'samples/SAMPLE_dish2.jpg' %>
+			<span class="dish_type">Plat</span>
+			<h1>Nom du plat</h1>
+			<p class="dish_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet congue elit eget varius. Nulla quis neque orci. Suspendisse metus ante.</p>
+		</li>
+		<li>
+			<%= image_tag 'samples/SAMPLE_dish3.jpg' %>
+			<span class="dish_type">Dessert</span>
+			<h1>Nom du plat</h1>
+			<p class="dish_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet congue elit eget varius. Nulla quis neque orci. Suspendisse metus ante.</p>
+		</li>
+	</ul>
+	
+</section>
+
+
+<section id="table_sheet_info" class="box">
+	<nav class="nav_tab">
+		<ul>
+			<li>Vos hôtes</li>
+			<li>Votre table</li>
+			<li>Évaluation</li>
+		</ul>
+	</nav>
+	
+	<div id="table_sheet_info_hosts">
+		<div class="host_bio">
+			<h2>Julien P.</h2>
+			<span class="host_bio_age">27 ans</span>
+			<span class="host_bio_occupation">Designer</span>
+			<ul class="host_bio_speak">
+				<li class="fr">French</li>
+				<li class="en">English</li>
+			</ul>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet congue elit eget varius. Nulla quis neque orci. Suspendisse metus ante.</p>
+			<ul class="host_bio_interests">
+				<li class="music">Music</li>
+				<li class="design">Design</li>
+			</ul>
+			<ul class="host_bio_pets">
+			</ul>
+			<a href="#">Learn more</a>
+		</div>
+		
+		<div class="host_bio">
+			<h2>Alex S.</h2>
+			<span class="host_bio_age">21 ans</span>
+			<span class="host_bio_occupation">Engineer</span>
+			<ul class="host_bio_speak">
+				<li class="fr">French</li>
+				<li class="en">English</li>
+			</ul>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet congue elit eget varius. Nulla quis neque orci. Suspendisse metus ante.</p>
+			<ul class="host_bio_interests">
+				<li class="music">Music</li>
+				<li class="design">Design</li>
+			</ul>
+			<ul class="host_bio_pets">
+				<li id="cat">Cat</li>
+			</ul>
+			<a href="#">Learn more</a>
+		</div>
+	</div>
+	
+	<div id="table_sheet_info_table">
+
+	</div>
+
+	<div id="table_sheet_info_review">
+
+	</div>
+	
+	
+</section>
+
+<aside>
+
+	<section class="box" id="table_sheet_aside_book">
+		<h3>Book</h3>
+		<form action="">
+			<span>
+				<label for="book_date">Date</label> <input id="book_date" class="form_input" placeholder="18/02/2012" /></span>
+			<span>
+				<label for="book_guests">Guests</label>
+				<select id="book_guests">
+					<option>choose</option>
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</span>
+			<input type="submit" id="book_submit" class="calltoaction" />
+		</form>
+	</section>
+	
+	<section class="box" id="table_sheet_aside_review">
+		<h3>Review</h3>
+	</section>
+	
+	<section class="box" id="table_sheet_aside_map">
+		<h3>Map</h3>
+		<%= image_tag 'samples/SAMPLE_map_aside.jpg' %>
+		<p>rue d'Aboukir, Paris 75002 <a href="#">more table in the neighborhood</a></p>
+	</section>
+	
+	<section class="box" id="table_sheet_aside_calendar">
+		<h3>Calendar</h3>
+		<select>
+			<option>February 2012</option>
+			<option>March 2012</option>			
+		</select>
+		<table>
+			<thead>
+				<tr>
+					<th>Sun</th>
+					<th>Mon</th>
+					<th>Tue</th>
+					<th>Wed</th>
+					<th>Thu</th>
+					<th>Fri</th>
+					<tH>Sat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>29</td>
+					<td>30</td>
+					<td>31</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td class="off">13</td>
+					<td class="off">14</td>
+					<td class="off">15</td>
+					<td class="off">16</td>
+					<td class="off">17</td>
+					<td class="off">18</td>
+				</tr>
+				<tr>
+					<td class="free">19</td>
+					<td class="free">20</td>
+					<td class="free">21</td>
+					<td>22</td>
+					<td>23</td>
+					<td>24</td>
+					<td>25</td>
+				</tr>
+				<tr>
+					<td>26</td>
+					<td>27</td>
+					<td>28</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+				</tr>
+			</tbody>
+		</table>
+		<span class="off">booked</span>
+		<span class="free">available</span>
+		<span class="unavailable">unavailable</span>
+	</section>
+	
+	<section class="box" id="table_sheet_aside_informations">
+		<h3>Additional informations</h3>
+		<ul>
+			<li class="glutenfree">Gluten-free</li>
+			<li class="veggie">Veggie</li>
+		</ul>
+	</section>
+
+</aside>

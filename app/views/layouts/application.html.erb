@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TAHProject</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+		<title>TAHProject</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body id="<%= params[:action] %>">
+		<header>
+			<a href="/">Coockening</a>		
+		</header>
+		<nav>
+			<ul>
+				<li></li>
+			</ul>
+		</nav>
+		<%= yield %>
+		
+		<footer>
+			<p>&copy; Cookening 2012</p>
+		</footer>
+		
+	</body>
 </html>
