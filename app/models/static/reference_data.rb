@@ -1,4 +1,4 @@
-class ReferenceData
+class Static::ReferenceData
 
   def self.reference value
     constants.detect {|const_name| const_get(const_name) == value }
@@ -24,8 +24,6 @@ class ReferenceData
   end
 
   def self.options opts={}
-
-
     result = ordered_values
     result.reject! {|option| !opts[:only].include? option.last } if opts.include? :only
     result.unshift [opts[:blank], ''] if opts.include? :blank

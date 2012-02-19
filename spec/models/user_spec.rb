@@ -1,18 +1,17 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { Factory(:user) }
+  #include Devise::TestHelpers
   
   before(:each) do
     @user = Factory(:user)
   end
   
-  it "should select ur mum" do
-    a = User.five_last
-    a.count.should equal 1
+  it "right values for Type field" do
+    User::Type::HOST.should equal 0
+    User::Type::GUEST.should equal 1
+    User::Type::HOST_N_GUEST.should equal 2
   end
 
-  it "this is a test" do
-    pending "ayaya"
-  end
+  
 end

@@ -28,5 +28,6 @@ group :test do
   gem "capybara"
   gem "guard-rspec"
   gem "guard-spork"
+  gem "ffaker"
 end
 
