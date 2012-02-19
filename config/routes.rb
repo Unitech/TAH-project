@@ -1,4 +1,6 @@
 TAHProject::Application.routes.draw do
+  devise_for :users
+
   get "home/index"
 
   match 'sitemap.xml' => 'sitemaps#sitemap'

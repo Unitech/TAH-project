@@ -27,3 +27,13 @@ Change sender email in config/initilizers/devise.rb :
 
 Modify the UA-code in :
     app/views/layouts/javascript
+
+## Test Unit
+
+Spork + Guard + Rspec + Factory Girl
+
+### Run
+
+    rake db:test:prepare
+    bundle exec guard
+    
