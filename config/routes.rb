@@ -1,4 +1,8 @@
 TAHProject::Application.routes.draw do
+  get "home/index"
+
+  match 'sitemap.xml' => 'sitemaps#sitemap'
+
   get "table_view/table_fiche"
 
   # The priority is based upon order of creation:

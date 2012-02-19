@@ -1,0 +1,50 @@
+<meta charset="utf-8">
+
+<!-- Enable Google Chrome Frame -->
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+<!-- Robots -->
+<meta name="robots" content="INDEX, FOLLOW ALL">
+
+<!-- Meta data -->
+<meta name="resource-type" content="document">
+<!-- <base href="http://p3ee.com"> -->
+<meta name="revisit-after" content="2 days">
+<meta name="Date-Creation-yyyymmdd" content="<%= Time.now.strftime("%Y%m%d") %>">
+<meta name="Date-Revision-yyyymmdd" content="<%= Time.now.strftime("%Y%m%d") %>">
+<!-- <meta name="keywords" content="Epitech, epitech, Epitech Web Lab, Web Lab, weblab, laboratoire epitech, labo web, web dev lab, Hemca, Strzelewicz, Alexandre, WebApp, node.js, web gl, webgl, rails, ruby on rails"> -->
+<meta name="description" content="TAH Project">
+<meta name="identifier-url" content="">
+<meta name="author" content="TAH Project">
+<meta name="copyright" content="TAH Project">
+
+<!-- Mobile Icons -->
+<!-- <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon" /> -->
+<!-- <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" type="image/png" /> -->
+
+<!-- Facebook -->
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="" />
+<meta property="og:url" content="" />
+<meta property="og:image" content="" />
+<meta property="og:site_name" content="" />
+<!-- <meta property="fb:app_id" content="xxxxx" /> -->
+
+<!-- G+ -->
+<meta itemprop="name" content="" />
+<meta itemprop="description" content="" />
+<!-- <meta itemprop="image" content="" /> -->
+
+<!-- Mobile window -->
+<meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1">
+
+<title>
+  <%= sitename %> - <%= viewname %>
+</title>
+
+<%= stylesheet_link_tag 'application', :media => "all" %>
+<%= yield :stylesheets %>
+<%= csrf_meta_tag %>
+<%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+

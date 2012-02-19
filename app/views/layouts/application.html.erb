@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>TAHProject</title>
-		<%= stylesheet_link_tag    "application", :media => "all" %>
-		<%= javascript_include_tag "application" %>
-		<%= csrf_meta_tags %>
+	  <!-- Head (SEO/META/TITLE) -->
+	  <%= render :partial => 'layouts/parts/head', :locals => { :sitename => 'TAH', :viewname => params[:action].titleize } %>
 	</head>
 	<body id="<%= params[:action] %>">
 		<header>
@@ -20,6 +18,6 @@
 		<footer>
 			<p>&copy; Cookening 2012</p>
 		</footer>
-		
+		<%= render :partial => 'layouts/parts/javascript' %>
 	</body>
 </html>
