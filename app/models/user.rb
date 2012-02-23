@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base  
   serialize :lang
 
+  has_many :tables
+
   # Devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  
   attr_protected :encrypted_password,
                  :reset_password_token,
                  :reset_password_sent_at,
@@ -16,7 +19,7 @@ class User < ActiveRecord::Base
                  :last_sign_in_ip
 
   # type field
-  class Type < Static::ReferenceData
+  class Status < Static::ReferenceData
     HOST = 0
     GUEST = 1
     HOST_N_GUEST = 2
@@ -28,7 +31,7 @@ class User < ActiveRecord::Base
   validates_presence_of :f_name
   validates_presence_of :l_name
   validates_presence_of :email
-  validates_presence_of :type
+  validates_presence_of :status
 
   #
   # Some scopes

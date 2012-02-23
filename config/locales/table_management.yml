@@ -1,0 +1,10 @@
+
+
+en:
+  table_dashboard:
+    index:
+      title : My tables
+      descr : table listing
+      created_new_table : Create new table
+    manage:
+      title : Manage my table 

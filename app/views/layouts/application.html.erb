@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <!-- Head (SEO/META/TITLE) -->
-	  <%= render :partial => 'layouts/parts/head', :locals => { :sitename => 'TAH', :viewname => params[:action].titleize } %>
-	</head>
-	<body id="<%= params[:action] %>">
-		<header>
-			<a href="/">Cookening</a>		
-		</header>
-		<nav>
-			<ul>
-				<li></li>
-			</ul>
-		</nav>
-		<%= yield %>
-		
-		<footer>
-			<p>&copy; Cookening 2012</p>
-		</footer>
-		<%= render :partial => 'layouts/parts/javascript' %>
-	</body>
+  <head>
+    <!-- Head (SEO/META/TITLE) -->
+    <%= render :partial => 'layouts/parts/head', :locals => { :sitename => 'TAH', :viewname => params[:action].titleize } %>
+  </head>
+  <body id="<%= params[:action] %>">
+    
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">TAH Project</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+	      <%= render_navigation :level => 1 %> 
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <br/>    <br/>    <br/>
+
+
+    <div class="container">
+
+    <%# Error messages display %>
+    <% flash.each do |key, msg| %>
+      <div class="alert alert-<%= key %>">
+	<%= msg %>
+      </div>
+    <% end %>
+
+      <%= yield %>
+
+      <footer>
+	<p>© Company 2012</p>
+      </footer>
+
+    </div>
+    
+
+    <!-- Javascript includes -->
+    <%= render :partial => 'layouts/parts/javascript' %>
+
+  </body>
 </html>

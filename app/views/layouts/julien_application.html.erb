@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <!-- Head (SEO/META/TITLE) -->
+	  <%= render :partial => 'layouts/parts/head', :locals => { :sitename => 'TAH', :viewname => params[:action].titleize } %>
+	</head>
+	<body id="<%= params[:action] %>">
+		<header>
+			<a href="/">Cookening</a>		
+		</header>
+		<nav>
+			<ul>
+				<li></li>
+			</ul>
+		</nav>
+		<%= yield %>
+		
+		<footer>
+			<p>&copy; Cookening 2012</p>
+		</footer>
+		<%= render :partial => 'layouts/parts/javascript' %>
+	</body>
+</html>

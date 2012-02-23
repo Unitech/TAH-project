@@ -12,6 +12,10 @@ end
 
 gem 'jquery-rails'
 
+
+gem 'formtastic'
+gem 'simple-navigation', '>= 3.0.0'
+
 # Auth
 gem 'devise', '~> 2.0.4'
 

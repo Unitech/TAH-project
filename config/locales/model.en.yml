@@ -1,0 +1,6 @@
+
+en:
+  model:
+    table:
+      init_new_table: New Table
+      init_descr: Random description

@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :lang
       t.integer :age
       t.text :description
-      t.integer :type
+      t.integer :status
       t.string :job
       
       t.timestamps

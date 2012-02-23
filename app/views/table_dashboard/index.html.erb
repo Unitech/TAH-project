@@ -1,0 +1,42 @@
+
+
+<section>
+  <div class="page-header">
+    <h1>
+      <%= t('table_dashboard.index.title') %> 
+      <small>
+	<%= t('table_dashboard.index.descr') %>
+      </small>
+    </h1>
+  </div>
+
+  <div class="row">
+
+    <div class="span4">
+      &nbsp;
+    </div>
+    
+    <div class="span4">
+      <div class="well">
+	<ul class="nav nav-list">
+	  <% @tables.each do |table| %>
+	    <li>
+	      <%= link_to table.title, table_dashboard_manage_path(table) %>
+	    </li>
+	  <% end %>
+	</ul>
+      </div>
+
+      <a class="btn" href="<%= table_dashboard_create_new_path %>">
+	<i class="icon-plus"></i> 
+	<%= t 'table_dashboard.index.create_new_table' %>
+      </a>
+
+    </div>
+
+    <div class="span4">
+      &nbsp;
+    </div>
+
+  </div>
+</section>
