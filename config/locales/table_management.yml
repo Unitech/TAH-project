@@ -8,3 +8,20 @@ en:
       created_new_table : Create new table
     manage:
       title : Manage my table 
+      edit_table : Edit table
+    edit_table:
+      title : Edit my table
+      descr : here you edit all informations about the table
+
+  menu_dashboard:
+    index:
+      title : My menus
+      descr : here is the listing of your menus
+      create_new_menu : Create a new menu
+      delete_menu : Are you sure to delete the menu
+    edit:
+      title : Edit the menu
+      dishes : Dishes
+
+  dishes:
+    

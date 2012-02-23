@@ -12,6 +12,6 @@
  *= require bootstrap
  *= require bootstrap-override
  *= require main
- *= require formtastic
+ *= require formtastic-bootstrap
 */
 

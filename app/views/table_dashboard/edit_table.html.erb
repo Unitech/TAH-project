@@ -1,2 +1,29 @@
-<h1>TableDashboard#edit_table</h1>
-<p>Find me in app/views/table_dashboard/edit_table.html.erb</p>
+
+<section>
+  <div class="page-header">
+    <h1>
+      <%= t('table_dashboard.edit_table.title') %> 
+      <small>
+	<%= t('table_dashboard.edit_table.descr') %>
+      </small>
+    </h1>
+  </div>
+
+  <div class="row">
+
+    <div class="span4">
+      &nbsp;
+    </div>
+    
+    <div class="span6">
+      <%= semantic_form_for @table, :url => table_dashboard_update_table_path do |f| %>
+	<%= f.inputs :title, :description %>
+	<%= f.buttons do %>
+	  <%= f.commit_button %>
+	<% end %>
+      <% end %>
+
+    </div>
+
+  </div>
+</section>

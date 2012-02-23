@@ -20,8 +20,9 @@
       <div class="well">
 	<ul class="nav nav-list">
 	  <% @tables.each do |table| %>
-	    <li>
+	    <li style="margin-bottom : 4px; padding-bottom : 6px;border-bottom : 1px solid silver;">
 	      <%= link_to table.title, table_dashboard_manage_path(table) %>
+	      Menus : <%= table.menu_count %>
 	    </li>
 	  <% end %>
 	</ul>

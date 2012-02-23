@@ -1,0 +1,2 @@
+module MenuDashboardHelper
+end

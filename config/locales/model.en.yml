@@ -4,3 +4,7 @@ en:
     table:
       init_new_table: New Table
       init_descr: Random description
+    menu:    
+      init_new_menu : My new menu
+      init_descr : A fancy description !
+    

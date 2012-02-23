@@ -1,4 +1,5 @@
 # encoding: utf-8
+Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
 
 # --------------------------------------------------------------------------------------------------
 # Please note: If you're subclassing Formtastic::FormBuilder, Formtastic uses

@@ -12,6 +12,7 @@ end
 
 gem 'jquery-rails'
 
+gem 'formtastic-bootstrap'
 
 gem 'formtastic'
 gem 'simple-navigation', '>= 3.0.0'

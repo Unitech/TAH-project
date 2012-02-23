@@ -8,25 +8,29 @@
 
   <div class="row show-grid">
     
-    <div class="span6 box-table">
-      Table management
-    </div>
+    <a href="<%= table_dashboard_edit_table_path(@table) %>">
+      <div class="span6 box-table step-<%= @table.step_one? %>">
+	<%= t('table_dashboard.manage.edit_table') %>
+      </div>
+    </a>
     
-    <div class="span6 box-table">
-      table
-    </div>
+    <a href="<%= table_dashboard_menu_index_path(@table) %>">
+      <div class="span6 box-table step-<%= @table.step_two? %>">
+	<%= t('table_dashboard.manage.edit_menu') %>
+	(<%= @table.menu_count %>)
+      </div>
+    </a>
 
   </div>
 
   <div class="row">
     
-    <div class="span6 box-table">
-      avaib
-    </div>
+    <a href="<%= table_dashboard_edit_availabilities_path(@table) %>">
+      <div class="span12 box-table step-<%= @table.step_three? %>">
+	<%= t('table_dashboard.manage.edit_availabilites') %>
+      </div>
+    </a>
     
-    <div class="span6 box-table">
-      &nbsp;
-    </div>
 
   </div>
 

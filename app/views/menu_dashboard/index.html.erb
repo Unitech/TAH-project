@@ -1,0 +1,39 @@
+
+<section>
+  <div class="page-header">
+    <h1>
+      <%= t('menu_dashboard.index.title') %> 
+      <small>
+	<%= t('menu_dashboard.index.descr') %>
+      </small>
+    </h1>
+  </div>
+
+  <div class="row">
+
+    <div class="span4">
+      &nbsp;
+    </div>
+    
+    <div class="span6">
+
+      <div class="well">
+	<ul class="nav nav-list">
+	  <% @menus.each do |menu| %>
+	    <li>
+	      <%= link_to menu.title, table_dashboard_menu_edit_path(@table, menu) %>
+	      <%= link_to 'Delete', table_dashboard_menu_delete_path(@table, menu), :method => 'delete', :style => 'color :red;', :confirm => "#{t('menu_dashboard.index.delete_menu')} : #{menu.title} ?" %>
+	    </li>
+	  <% end %>
+	</ul>
+      </div>
+
+      <a class="btn" href="<%= table_dashboard_menu_create_new_path %>">
+	<i class="icon-plus"></i> 
+	<%= t 'menu_dashboard.index.create_new_menu' %>
+      </a>
+
+    </div>
+
+  </div>
+</section>
