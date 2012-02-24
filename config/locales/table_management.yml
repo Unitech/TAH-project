@@ -12,7 +12,10 @@ en:
     edit_table:
       title : Edit my table
       descr : here you edit all informations about the table
-
+    availabilities:
+      title : Availabilities
+      descr : For each menu
+      
   menu_dashboard:
     index:
       title : My menus
@@ -22,6 +25,6 @@ en:
     edit:
       title : Edit the menu
       dishes : Dishes
-
+      add_dish : Add Dish
   dishes:
     

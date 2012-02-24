@@ -6,14 +6,25 @@
     </h1>
   </div>
 
+<ul class="breadcrumb">
+  <li>
+    <a href="<%= table_dashboard_manage_path %>"><%= @table.title %></a> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to 'Menus', table_dashboard_menu_index_path %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    Plat
+  </li>
+</ul>
+
+
   <div class="row">
 
     <div class="span4">
       <h2>Edit menu</h2>
       <%= semantic_form_for @menu, :url => table_dashboard_menu_update_path do |f| %>
 	<%= f.inputs :title, :price, :participation_cooking, :description %>
-	
-
 	
       <%= f.buttons do %>
 	<%= f.commit_button %>
@@ -26,6 +37,7 @@
       <h2>Dishes list</h2>
 
 	<div class="well">
+	  <!-- Warning dish-list must stay arround the list of menus -->
 	  <ul class="nav nav-list">
 	    <% @menu.dishes.each do |dish| %>
 	      <li><%= dish.title %></li>
@@ -33,11 +45,20 @@
 	  </ul>
 	</div>
 
-      <a class="btn" href="<%= table_dashboard_create_new_path %>">
-	<i class="icon-plus"></i> 
-	<%= t 'table_dashboard.index.create_new_table' %>
-      </a>
-      <br/><br/>
+	<div class="add-dish well">
+	  <h3>Add dish</h3>
+	  <br/>
+	  <%= semantic_form_for :dish, :url => table_dashboard_menu_dish_create_path do |f| %>
+	    <%= f.inputs :title, :description, :position %>
+	    
+	    <%= f.buttons do %>
+	      <%= f.commit_button t('menu_dashboard.edit.add_dish') %>
+	    <% end %>
+
+	  <% end %>
+	  
+	  
+	</div>
       
       
     </div>

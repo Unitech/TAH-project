@@ -1,0 +1,39 @@
+@import 'functions';
+
+
+#edit_availabilities {
+
+    .menu-listing {
+	ul {
+	    list-style-type : none;
+	    text-align : center;
+	}
+	li {
+	    position : relative;
+	    z-index : 9999;
+	    background-color : #2B72D0;
+	    color : white;
+	    padding : 6px 8px;
+	    @include rounded(5px);
+	    @include transition(0.5s);
+	    display :inline-block;
+	    &:hover {
+		cursor : pointer;
+		background-color : silver;
+		color : black;
+	    }
+	}
+    }
+
+    #calendar {
+	.wc-time-header-cell {
+	    font-size : 13px;
+	}
+	.wc-nav {
+	    height : 15px;
+	}
+	.wc-title {
+	    font-size : 13px;
+	}
+    }
+}

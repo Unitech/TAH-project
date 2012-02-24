@@ -21,7 +21,7 @@ TAHProject::Application.routes.draw do
         get '/:dish_id/edit' => :edit, :as => :edit
         put '/:dish_id/update' => :update, :as => :update
         delete '/:dish_id/delete' => :delete, :as => :delete
-        get '/create_new' => :create_new, :as => :create_new
+        post '/create' => :create, :as => :create
         
       end
     end

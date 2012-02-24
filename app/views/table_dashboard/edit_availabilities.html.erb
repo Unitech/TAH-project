@@ -1,2 +1,49 @@
-<h1>TableDashboard#edit_availabilities</h1>
-<p>Find me in app/views/table_dashboard/edit_availabilities.html.erb</p>
+
+
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag 'calendar/jquery-ui-1.8.11.custom.css', 'calendar/jquery.weekcalendar.css', 'calendar/calendar.customization.css' %>
+<% end %>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'calendar/jquery-ui-1.8.11.custom.min.js', 'calendar/date.js', 'calendar/jquery.weekcalendar.js', 'calendar/main.calendar.js' %>
+<% end %>
+
+<section>
+  <div class="page-header">
+    <h1>
+      <%= t('table_dashboard.availabilities.title') %> 
+      <small>
+	<%= t('table_dashboard.availabilities.descr') %>
+      </small>
+    </h1>
+  </div>
+
+<ul class="breadcrumb">
+  <li>
+    <a href="<%= table_dashboard_manage_path %>"><%= @table.title %></a> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <a href="#">Availabilities</a>
+  </li>
+</ul>
+
+
+  <div class="row menu-listing">
+    <div class="span12">
+      <h2>Menus</h2>
+      <!-- Warning menu-list id must st -->
+      <ul id="menu-list">
+	<% @menus.each do |menu| %>
+	  <li data-id="<%= menu.id %>"><%= menu.title %></li>
+	<% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <h2>Calendar</h2>
+      <div id='calendar'></div>
+    </div>
+  </div>
+</section>

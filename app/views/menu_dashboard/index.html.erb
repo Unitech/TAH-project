@@ -9,6 +9,16 @@
     </h1>
   </div>
 
+<ul class="breadcrumb">
+  <li>
+    <a href="<%= table_dashboard_manage_path %>"><%= @table.title %></a> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <a href="#">Menus</a>
+  </li>
+</ul>
+
+
   <div class="row">
 
     <div class="span4">
@@ -19,14 +29,18 @@
 
       <div class="well">
 	<ul class="nav nav-list">
-	  <% @menus.each do |menu| %>
-	    <li>
-	      <%= link_to menu.title, table_dashboard_menu_edit_path(@table, menu) %>
-	      <%= link_to 'Delete', table_dashboard_menu_delete_path(@table, menu), :method => 'delete', :style => 'color :red;', :confirm => "#{t('menu_dashboard.index.delete_menu')} : #{menu.title} ?" %>
-	    </li>
-	  <% end %>
-	</ul>
-      </div>
+	  <% @menus.each_with_index do |menu, index| %>
+	    <% if index == @menus.size - 1 %>
+	      <li class="alert alert-failure">
+	      <% else %>
+	      <li>
+	    <% end %>
+	    <%= link_to menu.title, table_dashboard_menu_edit_path(@table, menu) %>
+	    <%= link_to 'Delete', table_dashboard_menu_delete_path(@table, menu), :method => 'delete', :style => 'color :red;', :confirm => "#{t('menu_dashboard.index.delete_menu')} : #{menu.title} ?" %>
+</li>
+<% end %>
+</ul>
+</div>
 
       <a class="btn" href="<%= table_dashboard_menu_create_new_path %>">
 	<i class="icon-plus"></i> 

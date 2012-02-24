@@ -29,6 +29,7 @@ class TableDashboardController < ApplicationController
   end
 
   def edit_availabilities
+    @menus = @table.menus
   end
 
   def update_availabilities
