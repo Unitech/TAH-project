@@ -12,18 +12,31 @@ end
 
 gem 'jquery-rails'
 
+#
+# Prototyping
+#
 gem 'formtastic-bootstrap'
 
+#
+# Core
+#
 gem 'formtastic'
 gem 'simple-navigation', '>= 3.0.0'
+gem 'paperclip', '~> 2.7.0'
 
+#
 # Auth
+#
 gem 'devise', '~> 2.0.4'
 
+#
 # SEO
+#
 gem 'dynamic_sitemaps'
 
+#
 # Deployment
+#
 gem 'thin'
 gem 'capistrano'
 

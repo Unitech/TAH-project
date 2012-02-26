@@ -10,3 +10,8 @@ Factory.define :user do |f|
   f.password "secret"
   f.password_confirmation "secret"  
 end
+
+Factory.define :table do |t|
+  t.sequence(:title) { |n| "Title#{n}" }
+  t.description { Faker::Lorem.paragraph }
+end

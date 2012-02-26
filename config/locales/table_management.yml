@@ -13,8 +13,12 @@ en:
       title : Edit my table
       descr : here you edit all informations about the table
     availabilities:
-      title : Availabilities
+      title : Menu Availabilities Calendar
       descr : For each menu
+      start_time : Start time
+      end_time : End time
+      date : Date
+      menu : Select the menu
       
   menu_dashboard:
     index:

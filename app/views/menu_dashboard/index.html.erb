@@ -11,7 +11,7 @@
 
 <ul class="breadcrumb">
   <li>
-    <a href="<%= table_dashboard_manage_path %>"><%= @table.title %></a> <span class="divider">/</span>
+    <a href="<%= table_dashboard_manage_path %>">Table : <%= @table.title %></a> <span class="divider">/</span>
   </li>
   <li class="active">
     <a href="#">Menus</a>
@@ -30,7 +30,8 @@
       <div class="well">
 	<ul class="nav nav-list">
 	  <% @menus.each_with_index do |menu, index| %>
-	    <% if index == @menus.size - 1 %>
+	    <%# keep the notice flash message %>
+	    <% if index == @menus.size - 1 and flash[:notice].presence %>
 	      <li class="alert alert-failure">
 	      <% else %>
 	      <li>

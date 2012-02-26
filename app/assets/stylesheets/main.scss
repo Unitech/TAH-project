@@ -36,3 +36,13 @@ font-size : 17px;
 .step-false {
     color : red;
 }
+
+img.image-triggerable {
+    @include transition(0.5s);
+    border : 1px solid #999;
+    @include rounded(6px);
+    &:hover {
+	opacity : 0.7;
+	cursor : pointer;
+    }
+}

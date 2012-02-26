@@ -1,6 +1,23 @@
 <%= javascript_include_tag :application %>
 <%= yield :javascripts %>
 
+<script>
+
+  window.routes = {
+  availabilities : {
+  create : '<%= table_dashboard_availability_create_path %>',
+  update : '<%= table_dashboard_availability_update_path %>',
+  del : '<%= table_dashboard_availability_delete_path %>'
+  }
+
+  }
+  
+  window.translations = {
+  calendar : {
+  }
+  }
+</script>
+
 <% if Rails.env.production? -%>
   <script>
     var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];

@@ -28,6 +28,16 @@ Change sender email in config/initilizers/devise.rb :
 Modify the UA-code in :
     app/views/layouts/javascript
 
+### Calendar to edit availabilities
+
+In 
+    config/application.rb
+Check
+    config.time_zone = 'CET'
+    
+In the view we Use Date.js, which the date is adapted to the UTC,GMT of the client browser
+Warning ;)
+
 ## Test Unit
 
 Spork + Guard + Rspec + Factory Girl

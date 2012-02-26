@@ -4,25 +4,32 @@
 #edit_availabilities {
 
     .menu-listing {
-	ul {
-	    list-style-type : none;
-	    text-align : center;
-	}
-	li {
-	    position : relative;
-	    z-index : 9999;
-	    background-color : #2B72D0;
-	    color : white;
-	    padding : 6px 8px;
-	    @include rounded(5px);
-	    @include transition(0.5s);
-	    display :inline-block;
-	    &:hover {
-		cursor : pointer;
-		background-color : silver;
-		color : black;
-	    }
-	}
+	/* ul { */
+	/*     list-style-type : none; */
+	/*     text-align : center; */
+	/* } */
+
+	/* li { */
+	/*     position : relative; */
+	/*     z-index : 9999; */
+	/*     background-color : #2B72D0; */
+	/*     color : white; */
+	/*     padding : 6px 8px; */
+	/*     @include rounded(5px); */
+	/*     display :inline-block; */
+	/*     &:hover { */
+	/* 	cursor : pointer; */
+	/* 	background-color : silver; */
+	/* 	color : black; */
+	/*     } */
+	/* } */	
+    }
+
+
+    #event_edit_container {
+	display : none;
+
+
     }
 
     #calendar {
@@ -34,6 +41,24 @@
 	}
 	.wc-title {
 	    font-size : 13px;
+	}
+	
+	.stripped {
+	    background-color: silver;
+	    opacity : 0.6;
+	    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent), to(transparent));
+	    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	    background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+
+
+
+
+
+
+
 	}
     }
 }

@@ -11,15 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224170748) do
+ActiveRecord::Schema.define(:version => 20120226204856) do
+
+  create_table "availabilities", :force => true do |t|
+    t.boolean  "available"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "menu_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "availabilities", ["menu_id"], :name => "index_availabilities_on_menu_id"
 
   create_table "dishes", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "menu_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.integer  "position"
+    t.string   "main_image_file_name"
+    t.string   "main_image_content_type"
+    t.integer  "main_image_file_size"
+    t.datetime "main_image_updated_at"
   end
 
   add_index "dishes", ["menu_id"], :name => "index_dishes_on_menu_id"
@@ -32,8 +47,12 @@ ActiveRecord::Schema.define(:version => 20120224170748) do
     t.text     "description"
     t.boolean  "participation_cooking"
     t.integer  "table_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "main_image_file_name"
+    t.string   "main_image_content_type"
+    t.integer  "main_image_file_size"
+    t.datetime "main_image_updated_at"
   end
 
   add_index "menus", ["table_id"], :name => "index_menus_on_table_id"
@@ -45,8 +64,12 @@ ActiveRecord::Schema.define(:version => 20120224170748) do
     t.integer  "user_id"
     t.boolean  "table_available"
     t.string   "theme"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "main_image_file_name"
+    t.string   "main_image_content_type"
+    t.integer  "main_image_file_size"
+    t.datetime "main_image_updated_at"
   end
 
   add_index "tables", ["user_id"], :name => "index_tables_on_user_id"

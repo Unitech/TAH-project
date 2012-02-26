@@ -25,6 +25,13 @@ TAHProject::Application.routes.draw do
         
       end
     end
+
+    scope :controller => 'availability', :path => '/:table_id/availability', :as => :availability do
+      post '/update' => :update, :as => :update
+      post '/create' => :create, :as => :create
+      post '/delete' => :delete, :as => :delete
+    end
+
     get '/' => :index, :as => :index
   end
 

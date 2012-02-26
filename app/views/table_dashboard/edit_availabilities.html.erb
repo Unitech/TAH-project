@@ -1,11 +1,38 @@
-
-
 <% content_for :stylesheets do %>
-  <%= stylesheet_link_tag 'calendar/jquery-ui-1.8.11.custom.css', 'calendar/jquery.weekcalendar.css', 'calendar/calendar.customization.css' %>
+  <%= stylesheet_link_tag 'calendar/jquery-ui-1.8.11.custom.css', 
+      'calendar/jquery.weekcalendar.css', 
+      'calendar/calendar.customization.css' 
+      %>
 <% end %>
 
 <% content_for :javascripts do %>
-  <%= javascript_include_tag 'calendar/jquery-ui-1.8.11.custom.min.js', 'calendar/date.js', 'calendar/jquery.weekcalendar.js', 'calendar/main.calendar.js' %>
+    <script>
+      var eventData = { events : <%= @interval.to_json.html_safe %> }
+
+function get_random_color() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.round(Math.random() * 15)];
+    }
+    return color;
+}
+      
+      alternate_color = [];
+
+      <% @menus.each_with_index do |menu, i| %>
+	alternate_color[<%= i %>] = {};
+	alternate_color[<%= i %>].index = <%= menu.id %>;
+	alternate_color[<%= i %>].color = get_random_color();
+      <% end %>
+      
+    </script>
+
+    <%= javascript_include_tag 'calendar/jquery-ui-1.8.11.custom.min.js', 
+	'calendar/date.js', 
+	'calendar/jquery.weekcalendar.js', 
+	'calendar/main.calendar.js' 
+	%>
 <% end %>
 
 <section>
@@ -18,32 +45,63 @@
     </h1>
   </div>
 
-<ul class="breadcrumb">
-  <li>
-    <a href="<%= table_dashboard_manage_path %>"><%= @table.title %></a> <span class="divider">/</span>
-  </li>
-  <li class="active">
-    <a href="#">Availabilities</a>
-  </li>
-</ul>
-
-
-  <div class="row menu-listing">
-    <div class="span12">
-      <h2>Menus</h2>
-      <!-- Warning menu-list id must st -->
-      <ul id="menu-list">
-	<% @menus.each do |menu| %>
-	  <li data-id="<%= menu.id %>"><%= menu.title %></li>
-	<% end %>
-      </ul>
-    </div>
-  </div>
+  <ul class="breadcrumb">
+    <li>
+      <a href="<%= table_dashboard_manage_path %>">Table : <%= @table.title %></a> <span class="divider">/</span>
+    </li>
+    <li class="active">
+      <a href="#">Availabilities</a>
+    </li>
+  </ul>
 
   <div class="row">
     <div class="span12">
-      <h2>Calendar</h2>
-      <div id='calendar'></div>
+
+      <div id="calendar"></div>
+      <div id="event_edit_container">
+	<form>
+	  <input type="hidden"/>
+	  <ul>
+	    <li>
+	      <span>
+		<%= t 'table_dashboard.availabilities.date' %>
+	      </span>
+	      <span class="date_holder">
+	      </span> 
+	    </li>
+	    <li>
+	      <label for="start">
+		<%= t 'table_dashboard.availabilities.end_time' %>
+	      </label>
+	      <select name="start">
+		<option value="">
+		  <%= t 'table_dashboard.availabilities.select_start_time' %>		  
+		</option>
+	      </select>
+	    </li>
+	    <li>
+	      <label for="end">
+		<%= t 'table_dashboard.availabilities.end_time' %>
+	      </label>
+	      <select name="end">
+		<option value="">
+		  Select End Time
+		</option>
+	      </select>
+	    </li>
+	    <li>	      
+	      <label for="title">
+		<%= t 'table_dashboard.availabilities.menu' %>
+	      </label>
+	      <select name="title">
+		<% @menus.each do |menu| %>
+		  <option value="<%= menu.id %>"><%= menu.title %></option>
+		<% end %>
+	      </select>
+	    </li>
+	  </ul>
+	</form>
+      </div>
     </div>
   </div>
 </section>

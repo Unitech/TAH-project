@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base  
+
+
+  #
+  # contrat a cocher
+  # validates :terms_of_service, :acceptance => true
   serialize :lang
 
   has_many :tables

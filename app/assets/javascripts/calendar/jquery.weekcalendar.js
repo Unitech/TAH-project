@@ -431,79 +431,6 @@
 		this._updateEventInCalendar(calEvent);
 	    },
 
-
-
-		appendElementAtMouse : function(event) {
-
-	            var self = this;
-		    var options = this.options;
-
-		    var $target = $(event.target);
-		    //if ($target.hasClass('wc-day-column-inner')) {
-		    
-		    var $newEvent = $('<div class=\"wc-cal-event wc-new-cal-event wc-new-cal-event-creating\"></div>');
-		    
-		    $newEvent.css({lineHeight: (options.timeslotHeight - 2) + 'px', fontSize: (options.timeslotHeight / 2) + 'px'});
-		    $target.append($newEvent);
-		    
-		    var columnOffset = $target.offset().top;
-		    var clickY = event.pageY - columnOffset;
-		    
-		    console.log(clickY);
-		    var clickYRounded = (clickY - (clickY % options.timeslotHeight)) / options.timeslotHeight;
-		    
-		    var topPosition = clickYRounded * options.timeslotHeight;
-		    
-		    $newEvent.css({top: topPosition});
-		    //}
-		    console.log($newEvent);
-		    
-		    
-		    
-		    var $weekDay = $target.closest('.wc-day-column-inner');
-		    var $newEvent = $weekDay.find('.wc-new-cal-event-creating');
-		    
-		    var createdFromSingleClick = !$newEvent.hasClass('ui-resizable-resizing');
-		    
-		    //if even created from a single click only, default height
-                    if (createdFromSingleClick) {
-			$newEvent.css({height: options.timeslotHeight * options.defaultEventLength}).show();
-                    }
-
-
-                    var eventDuration = self._getEventDurationFromPositionedEventElement($weekDay, $newEvent, topPosition);
-		    
-                    $newEvent.remove();
-                    var newCalEvent = {start: eventDuration.start, end: eventDuration.end, title: options.newEventText};
-                    var showAsSeparatedUser = options.showAsSeparateUsers && options.users && options.users.length;
-		    
-                    if (showAsSeparatedUser) {
-			newCalEvent = self._setEventUserId(newCalEvent, $weekDay.data('wcUserId'));
-                    }
-                    else if (!options.showAsSeparateUsers && options.users && options.users.length == 1) {
-			newCalEvent = self._setEventUserId(newCalEvent, self._getUserIdFromIndex(0));
-                    }
-		    
-                    var freeBusyManager = self.getFreeBusyManagerForEvent(newCalEvent);
-		    
-                    var $renderedCalEvent = self._renderEvent(newCalEvent, $weekDay);
-		    
-                    if (!options.allowCalEventOverlap) {
-			self._adjustForEventCollisions($weekDay, $renderedCalEvent, newCalEvent, newCalEvent);
-			self._positionEvent($weekDay, $renderedCalEvent);
-                    } else {
-			self._adjustOverlappingEvents($weekDay);
-                    }
-		    
-                    var proceed = self._trigger('beforeEventNew', event, {
-			'calEvent': newCalEvent,
-			'createdFromSingleClick': createdFromSingleClick,
-			'calendar': self.element
-                    });
-
-
-		},
-
 	    /*
              * Returns an array of timeslot start and end times based on
              * the configured grid of the calendar. Returns in both date and
@@ -1120,6 +1047,7 @@
 		var options = this.options;
 		$weekDay.mousedown(function(event) {
 		    var $target = $(event.target);
+
 		    if ($target.hasClass('wc-day-column-inner')) {
 
 			var $newEvent = $('<div class=\"wc-cal-event wc-new-cal-event wc-new-cal-event-creating\"></div>');
@@ -1128,9 +1056,10 @@
 			$target.append($newEvent);
 
 			var columnOffset = $target.offset().top;
-			console.log(event);
+
 			var clickY = event.pageY - columnOffset;
 			var clickYRounded = (clickY - (clickY % options.timeslotHeight)) / options.timeslotHeight;
+
 
 			var topPosition = clickYRounded * options.timeslotHeight;
 			
@@ -1172,7 +1101,7 @@
 			    $newEvent.css({height: options.timeslotHeight * options.defaultEventLength}).show();
 			}
 			var top = parseInt($newEvent.css('top'));
-					    console.log(top);
+
 			var eventDuration = self._getEventDurationFromPositionedEventElement($weekDay, $newEvent, top);
 
 			$newEvent.remove();

@@ -15,7 +15,7 @@ class MenuDashboardController < ApplicationController
     @table.menus.create :title => t('model.menu.init_new_menu'),
                         :description => t('model.menu.init_descr'),
                         :price => 0
-    @new_present = true
+    # keep notice flash message
     redirect_to :back, :notice => t('notifications.menu_created')
   end
 

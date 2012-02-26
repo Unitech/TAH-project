@@ -8,10 +8,16 @@ class TableDashboardController < ApplicationController
   end
 
   def create_new
-    # Create default table
-    current_user.tables.create :title => t('model.table.init_new_table'),
-                               :description => t('model.table.init_descr')
-    redirect_to :back, :notice => t('notifications.table_created')
+    # Create default table    
+    @new_table = current_user.tables.new :title => t('model.table.init_new_table'),
+               :description => t('model.table.init_descr')
+    
+    if @new_table.save
+      redirect_to :back, :notice => t('notifications.table_created')
+    else
+      throw @new_table.errors
+      redirect_to :back, :notice => t('notifications.fail')
+    end
   end
 
   def manage
@@ -29,10 +35,45 @@ class TableDashboardController < ApplicationController
   end
 
   def edit_availabilities
-    @menus = @table.menus
+    @interval = Array.new
+
+    @menus = @table.menus.includes(:availabilities)
+
+    @availabilities = @menus.each do |menu|
+      menu.availabilities.each do |available|
+        available.title = menu.title
+        @interval << available.for_calendar
+      end
+    end
+    
   end
 
+  #
+  # Maybe a check for security
+  #
   def update_availabilities
+
+    begin
+      menu = @table.menus.find(params[:menu_id], :include => :availabilities)
+      
+      if params[:id] == '-1'
+        @availability = menu.availabilities.create(:start => params[:start], :end => params[:end])
+      else
+        @availability = menu.availabilities.find(params[:id])
+        @availability.update_attributes(:start => params[:start], :end => params[:end])
+      end
+      
+      render :json => { 
+        :success => true, 
+        :new_id => @availability.id 
+      }
+    rescue ActiveRecord::RecordNotFound
+      render :json => { 
+        :success => false, 
+        :info => 'Event not found'
+      }
+    end
+
   end
 
 end

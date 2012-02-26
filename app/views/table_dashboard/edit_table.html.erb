@@ -17,7 +17,28 @@
     
     <div class="span6">
       <%= semantic_form_for @table, :url => table_dashboard_update_table_path do |f| %>
+
+
+	<%# Image click handling %>
+	<%= f.input :main_image, :input_html => { :style => 'opacity : 0; position : absolute;'}  %>
+	<% if @table.main_image.presence %>
+	  <%= image_tag @table.main_image.url(:small), :id => 'trigger_upload_field', :class => 'image-triggerable' %>
+	<% else %>
+	  <%= image_tag 'proto/sal.jpg', :id => 'trigger_upload_field', :class => 'image-triggerable' %>
+	<% end %>
+	<% content_for :javascripts do %>
+	  <script>
+	    $().ready(function() {
+	    TAH.clickTriggerUpload($('#trigger_upload_field'), $('#table_main_image'));
+	    });
+	  </script>
+	<% end %>
+
+	<%# end %>
+
+
 	<%= f.inputs :title, :description %>
+		
 	<%= f.buttons do %>
 	  <%= f.commit_button %>
 	<% end %>

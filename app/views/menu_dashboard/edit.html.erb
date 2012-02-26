@@ -8,10 +8,10 @@
 
 <ul class="breadcrumb">
   <li>
-    <a href="<%= table_dashboard_manage_path %>"><%= @table.title %></a> <span class="divider">/</span>
+    <a href="<%= table_dashboard_manage_path %>">Table : <%= @table.title %></a> <span class="divider">/</span>
   </li>
   <li>
-    <%= link_to 'Menus', table_dashboard_menu_index_path %> <span class="divider">/</span>
+    <%= link_to "Menus : #{@menu.title}", table_dashboard_menu_index_path %> <span class="divider">/</span>
   </li>
   <li class="active">
     Plat

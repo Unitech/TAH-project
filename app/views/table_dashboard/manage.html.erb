@@ -6,6 +6,17 @@
     </h1>
   </div>
 
+  
+  <%# Main image %>
+  <a href="<%= table_dashboard_edit_table_path(@table) %>">
+    <% if @table.main_image.presence %>
+      <%= image_tag @table.main_image.url(:table_page), :class => 'image-triggerable' %>
+    <% else %>    
+      <%= image_tag 'proto/dashboard.jpg', :class => 'image-triggerable' %>
+    <% end %>
+  </a>
+  
+
   <div class="row show-grid">
     
     <a href="<%= table_dashboard_edit_table_path(@table) %>">
@@ -18,6 +29,8 @@
       <div class="span6 box-table step-<%= @table.step_two? %>">
 	<%= t('table_dashboard.manage.edit_menu') %>
 	(<%= @table.menu_count %>)
+	
+
       </div>
     </a>
 
