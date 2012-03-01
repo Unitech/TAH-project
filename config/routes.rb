@@ -5,8 +5,8 @@ TAHProject::Application.routes.draw do
     get '/:table_id/edit_table' => :edit_table, :as => :edit_table
     put '/:table_id/update_table' => :update_table, :as => :update_table    
     get '/:table_id/edit_availabilities' => :edit_availabilities, :as => :edit_availabilities
-    post '/:table_id/update_availabilities' => :update_availabilities, :as => :update_availabilities
-    get '/create_new' => :create_new, :as => :create_new
+    # post '/:table_id/update_availabilities' => :update_availabilities, :as => :update_availabilities
+    post '/create_new' => :create_new, :as => :create_new
     get '/:table_id/manage' => :manage, :as => :manage
 
     scope :controller => 'menu_dashboard', :path => '/:table_id/menu', :as => :menu do

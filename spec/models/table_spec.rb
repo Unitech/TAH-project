@@ -23,6 +23,21 @@ describe Table do
     it "has no menus" do 
       @table.menu_count.should == 0
     end
+    
+    it "fail when title missing" do
+      @table = Table.new(:description => 'asdasd')
+      @table.should_not be_valid      
+    end
+
+    it "fail when desct missing" do
+      @table = Table.new(:title => 'asdasd')
+      @table.should_not be_valid
+    end
+
+    it "succed when field title and description are filled" do
+      @table = Table.new(:title => 'sasadsad', :description => 'asdasdsd')
+      @table.should be_valid
+    end
   end
 
 end

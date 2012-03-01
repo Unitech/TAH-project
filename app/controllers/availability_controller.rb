@@ -1,6 +1,6 @@
 class AvailabilityController < ApplicationController
   before_filter :authenticate_user!
-  # method in application_controller
+  # method defined in application_controller
   before_filter :table_belongs_to_user
 
   def create

@@ -14,7 +14,11 @@ describe TableDashboardController do
       get :index
       response.should be_redirect
     end
-    
+
+    it "flash message" do
+      get :index
+      flash[:alert].should == 'You need to sign in or sign up before continuing.'
+    end
   end
 
   describe "user logged" do
@@ -22,6 +26,7 @@ describe TableDashboardController do
       @user = Factory(:user)
       sign_in @user
       get :index
+      request.env["HTTP_REFERER"] = '/'
     end
 
     it "succed to acces to the dashboard" do
@@ -33,16 +38,14 @@ describe TableDashboardController do
     end
 
     it "create a new table" do
-      request.env["HTTP_REFERER"] = '/'
-      get :create_new
+      post :create_new
       @user.tables.count.should == 1
-      get :create_new
+      post :create_new
       @user.tables.count.should == 2      
     end
 
     it "edit table title" do
-      request.env["HTTP_REFERER"] = '/'
-      get :create_new
+      post :create_new
       @user.tables.count.should == 1
       @table = @user.tables.first
       post :update_table, {:table_id => @table.id, :table => {:title => 'new'}}
@@ -55,16 +58,18 @@ describe TableDashboardController do
     end
 
     it "get one table after creating" do
-      request.env["HTTP_REFERER"] = '/'
-      get :create_new
+      post :create_new
       get :index
       assigns(:tables).count.should == 1
     end
-  end
 
-  
-  
+    it "render a special table" do
+      post :create_new, {:table => {:title => 'test', :description => 'ayay'}}
+      @table = Table.last
+      @table.title.should == 'test'
+      @table.description.should == 'ayay'
+    end
 
-  
+  end  
   
 end

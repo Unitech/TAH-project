@@ -10,12 +10,14 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :development do
+  #
+  # Prototyping
+  #
+  gem 'formtastic-bootstrap'
+end
 
-#
-# Prototyping
-#
-gem 'formtastic-bootstrap'
+gem 'jquery-rails'
 
 #
 # Core
@@ -23,6 +25,7 @@ gem 'formtastic-bootstrap'
 gem 'formtastic'
 gem 'simple-navigation', '>= 3.0.0'
 gem 'paperclip', '~> 2.7.0'
+gem 'annotate'
 
 #
 # Auth
