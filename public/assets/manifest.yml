@@ -1,0 +1,20 @@
+---
+proto/dashboard.jpg: proto/dashboard-e9f5c974cac148a46c0cc01be66f7404.jpg
+proto/sal.jpg: proto/sal-370af4c048579b41cb9b3b76084b1e81.jpg
+rails.png: rails-782b548cc1ba7f898cdad2d9eb8420d2.png
+samples/SAMPLE_author1.jpg: samples/SAMPLE_author1-07725ba056eeae54d9b9c666551d8ed0.jpg
+samples/SAMPLE_author2.jpg: samples/SAMPLE_author2-897d18ab6a5f8c8cbd898e2c08238af7.jpg
+samples/SAMPLE_dish1.jpg: samples/SAMPLE_dish1-ef51bf08276d28d8354037615ddd3931.jpg
+samples/SAMPLE_dish2.jpg: samples/SAMPLE_dish2-034755ed568bd526fbeee38a3eefb3fb.jpg
+samples/SAMPLE_dish3.jpg: samples/SAMPLE_dish3-b30a421aa93bb277bf3c87ac8357936a.jpg
+samples/SAMPLE_host1.jpg: samples/SAMPLE_host1-04b272f1e56a7672cc5ab55d8d623c37.jpg
+samples/SAMPLE_host2.jpg: samples/SAMPLE_host2-e7231f7bbd7595b6f4181858e12a7fb4.jpg
+samples/SAMPLE_host_mini.jpg: samples/SAMPLE_host_mini-4527ae54c2c6b17cb03df3a9dde02bf6.jpg
+samples/SAMPLE_map_aside.jpg: samples/SAMPLE_map_aside-a567e27f36227c8d74c0a5811d2f95a2.jpg
+samples/SAMPLE_table_big.jpg: samples/SAMPLE_table_big-5136831c458f68ba532c7fdc0c19a993.jpg
+samples/SAMPLE_table_mini1.jpg: samples/SAMPLE_table_mini1-12f6a232c79891053376fc7b1fcd7778.jpg
+samples/SAMPLE_table_mini2.jpg: samples/SAMPLE_table_mini2-58078cd3f3863c998c2ba381da9d1592.jpg
+samples/SAMPLE_table_sheet_cover.jpg: samples/SAMPLE_table_sheet_cover-85c753118b05923bca875e16edd06615.jpg
+application.js: application-29868a3bfa7f555e92adaa431ab986b5.js
+application.css: application-5b5ea21f2b5e29a0981be74b8f68d4f7.css
+bootstrap/config.rb: bootstrap/config-fa75eb970f11c8565390052dddd8d8cf.rb
