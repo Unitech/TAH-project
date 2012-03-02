@@ -21,6 +21,11 @@ end
 gem 'jquery-rails'
 
 #
+# Services
+#
+gem 'exceptional'
+
+#
 # Core
 #
 gem 'formtastic'
