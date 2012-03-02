@@ -1,5 +1,9 @@
 # TAH-project
 
+# TODO
+
+- AJAX
+
 ## Notes for designing
 
 ### Layout

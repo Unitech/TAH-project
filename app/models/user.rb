@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   # Devise
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable #, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
   
   attr_protected :encrypted_password,
