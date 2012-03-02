@@ -1,4 +1,4 @@
 class TableViewController < ApplicationController
-  def table_fiche
+  def table_sample
   end
 end

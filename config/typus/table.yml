@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Table:
+  fields:
+    default: title, description, capacity, user_id, table_available, theme, main_image_file_name, main_image_file_size
+    form: title, description, capacity, user_id, table_available, theme, main_image_file_name, main_image_file_size
+  relationships: menus
+  application: Application

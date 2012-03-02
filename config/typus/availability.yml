@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Availability:
+  fields:
+    default: available, start, end, menu_id
+    form: available, start, end, menu_id
+  relationships: 
+  application: Application

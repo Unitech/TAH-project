@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Dish:
+  fields:
+    default: title, description, menu_id, position, main_image_file_name, main_image_file_size
+    form: title, description, menu_id, position, main_image_file_name, main_image_file_size
+  relationships: 
+  application: Application

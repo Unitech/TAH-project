@@ -1,0 +1,10 @@
+# Use the README file as a reference to customize settings.
+
+DishSample:
+  fields:
+    default: title, description 
+    list : title, description
+    form: title, description, image
+    show: title, description, image
+  relationships: 
+  application: Application

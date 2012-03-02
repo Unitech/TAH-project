@@ -24,13 +24,15 @@ gem 'jquery-rails'
 # Core
 #
 gem 'formtastic'
-gem 'formtastic-bootstrap'
+#gem 'formtastic-bootstrap'
 gem 'client_side_validations'
+gem 'rails3-jquery-autocomplete'
 #gem 'client_side_validations-formtastic'
 
 gem 'simple-navigation', '>= 3.0.0'
 gem 'paperclip', '~> 2.7.0'
 gem 'annotate'
+gem 'typus', '~> 3.1.8'
 
 
 #

@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require console
 //= require functions
-//= require rails.validations
+//= require autocomplete-rails
+
+

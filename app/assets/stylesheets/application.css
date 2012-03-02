@@ -10,8 +10,7 @@
  *
  *= require_self
  *= require bootstrap
- *= require bootstrap-override
  *= require main
- *= require formtastic-bootstrap
+ *= require style
 */
 

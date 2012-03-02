@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Menu:
+  fields:
+    default: status, title, price, option, description, participation_cooking, table_id, main_image_file_name, main_image_file_size
+    form: status, title, price, option, description, participation_cooking, table_id, main_image_file_name, main_image_file_size
+  relationships: dishes, availabilities
+  application: Application

@@ -1,5 +1,23 @@
 # TAH-project
 
+## Notes for designing
+
+### Layout
+
+The default layout is used in :
+    app/views/layout/application.html.erb
+    
+### Stylesheets
+
+Stylesheet location :
+    app/assets/stylesheets
+    
+### Bootstrap
+
+Bootstrap :
+    vendor/assets/stylesheets/
+    
+
 ## Notes for deployment
 
 ### Sitemap

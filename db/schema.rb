@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226204856) do
+ActiveRecord::Schema.define(:version => 20120302140604) do
+
+  create_table "admin_users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
+  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "availabilities", :force => true do |t|
     t.boolean  "available"
@@ -23,6 +41,17 @@ ActiveRecord::Schema.define(:version => 20120226204856) do
   end
 
   add_index "availabilities", ["menu_id"], :name => "index_availabilities_on_menu_id"
+
+  create_table "dish_samples", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "dishes", :force => true do |t|
     t.string   "title"
@@ -38,6 +67,13 @@ ActiveRecord::Schema.define(:version => 20120226204856) do
   end
 
   add_index "dishes", ["menu_id"], :name => "index_dishes_on_menu_id"
+
+  create_table "dishsamples", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "menus", :force => true do |t|
     t.integer  "status"

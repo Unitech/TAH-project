@@ -1,5 +1,7 @@
 TAHProject::Application.routes.draw do
 
+  devise_for :admin_users
+
   scope :controller => 'table_dashboard', :path => '/table_dashboard/', :as => :table_dashboard do
 
     get '/:table_id/edit_table' => :edit_table, :as => :edit_table
@@ -35,10 +37,21 @@ TAHProject::Application.routes.draw do
     get '/' => :index, :as => :index
   end
 
+  get "table_view/table_fiche"
+
+  scope :controller => 'table_view', :path => '/table_view', :as => :table_view do
+    get '/table_sample' => :table_sample, :as => :sample
+  end
+
+  namespace :misc do
+    scope :controller => 'dish_sample', :path => '/path' do
+      get 'autocomplete_dish_sample_title', :as => :autocomplete_dish_sample_title
+    end
+  end
 
   devise_for :users
   
-  get "table_view/table_fiche"
+
  
   get 'sitemap.xml' => 'sitemaps#sitemap'  
   root :to => 'home#index'

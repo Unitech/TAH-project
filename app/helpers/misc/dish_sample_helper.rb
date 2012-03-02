@@ -1,0 +1,2 @@
+module Misc::DishSampleHelper
+end
