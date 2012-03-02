@@ -13,7 +13,7 @@
   <%# Main image %>
   <a href="<%= table_dashboard_edit_table_path(@table) %>">
     <% if @table.main_image.presence %>
-      <%= image_tag @table.main_image.url(:medium), :class => 'image-triggerable' %>
+      <%= image_tag @table.main_image.url(:table_page), :class => 'image-triggerable' %>
     <% else %>    
       <%= image_tag 'proto/dashboard.jpg', :class => 'image-triggerable' %>
     <% end %>
