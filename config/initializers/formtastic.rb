@@ -67,7 +67,7 @@ Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
 # Specifies if labels/hints for input fields automatically be looked up using I18n.
 # Default value: true. Overridden for specific fields by setting value to true,
 # i.e. :label => true, or :hint => true (or opposite depending on initialized value)
-# Formtastic::FormBuilder.i18n_lookups_by_default = false
+Formtastic::FormBuilder.i18n_lookups_by_default = false
 
 # You can add custom inputs or override parts of Formtastic by subclassing Formtastic::FormBuilder and
 # specifying that class here.  Defaults to Formtastic::FormBuilder.

@@ -1,16 +1,19 @@
 class User < ActiveRecord::Base  
-
-
-  #
   # contrat a cocher
   # validates :terms_of_service, :acceptance => true
+
+  # 
+  # to move in observer
+  # 
+  after_initialize :init_user
+
   serialize :lang
 
   has_many :tables
 
   # Devise
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable #, :validatable
 
   
   attr_protected :encrypted_password,
@@ -53,7 +56,12 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
+
+  protected
+  def init_user
+    self.status ||= User::Status::HOST
+  end
+
   # Get all users that have published a post
   # scope :published, lambda {
   #   joins("join posts on posts.author_id = users.id").
