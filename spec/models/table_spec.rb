@@ -41,3 +41,23 @@ describe Table do
   end
 
 end
+
+# == Schema Information
+#
+# Table name: tables
+#
+#  id                      :integer         not null, primary key
+#  title                   :string(255)
+#  description             :text
+#  capacity                :integer
+#  user_id                 :integer
+#  table_available         :boolean
+#  theme                   :string(255)
+#  created_at              :datetime        not null
+#  updated_at              :datetime        not null
+#  main_image_file_name    :string(255)
+#  main_image_content_type :string(255)
+#  main_image_file_size    :integer
+#  main_image_updated_at   :datetime
+#
+

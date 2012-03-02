@@ -1,8 +1,10 @@
 class Dish < ActiveRecord::Base
   belongs_to :menu
   
-  
+  validates_presence_of :title
+
 end
+
 
 # == Schema Information
 #
@@ -19,5 +21,6 @@ end
 #  main_image_content_type :string(255)
 #  main_image_file_size    :integer
 #  main_image_updated_at   :datetime
+#  category                :integer
 #
 

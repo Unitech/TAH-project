@@ -6,35 +6,26 @@
     </h1>
   </div>
 
-<ul class="breadcrumb">
-  <li>
-    <a href="<%= table_dashboard_manage_path %>">Table : <%= @table.title %></a> <span class="divider">/</span>
-  </li>
-  <li>
-    <%= link_to "Menus : #{@menu.title}", table_dashboard_menu_index_path %> <span class="divider">/</span>
-  </li>
-  <li class="active">
-    Plat
-  </li>
-</ul>
+  <ul class="breadcrumb">
+    <li>
+      <a href="<%= table_dashboard_manage_path %>">Table : <%= @table.title %></a> <span class="divider">/</span>
+    </li>
+    <li>
+      <%= link_to "Menus : #{@menu.title}", table_dashboard_menu_index_path %> <span class="divider">/</span>
+    </li>
+    <li class="active">
+      Plat
+    </li>
+  </ul>
 
 
   <div class="row">
 
     <div class="span4">
-      <h2>Edit menu</h2>
-      <%= semantic_form_for @menu, :url => table_dashboard_menu_update_path do |f| %>
-	<%= f.inputs :title, :price, :participation_cooking, :description %>
-	
-      <%= f.buttons do %>
-	<%= f.commit_button %>
-      <% end %>
-
-      <% end %>
+      <%= render :partial => 'menu_dashboard/edit', :locals => { :menu => @menu } %>
     </div>
     
-    <div class="span6">
-      
+    <div class="span6">      
       <%= render :partial => 'dish_dashboard/dish_list' %>
     </div>
 

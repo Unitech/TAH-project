@@ -13,8 +13,18 @@ class DishDashboardController < ApplicationController
   end
 
   def create
-    @table.menus.find(params[:menu_id]).dishes.create(params[:dish])
-    redirect_to :back, :notice => t('notifications.menu_created')
+    @dish = @table.menus.find(params[:menu_id]).dishes.new(params[:dish])
+    if @dish.save      
+      render :json => { 
+        :success => true, 
+        :new_id => @dish.id 
+      }      
+    else
+      render :json => { 
+        :success => false
+      }      
+    end
+    #redirect_to :back, :notice => t('notifications.menu_created')
   end
 
   def delete

@@ -7,7 +7,6 @@ TAHProject::Application.routes.draw do
     get '/:table_id/edit_table' => :edit_table, :as => :edit_table
     put '/:table_id/update_table' => :update_table, :as => :update_table    
     get '/:table_id/edit_availabilities' => :edit_availabilities, :as => :edit_availabilities
-    # post '/:table_id/update_availabilities' => :update_availabilities, :as => :update_availabilities
     post '/create_new' => :create_new, :as => :create_new
     get '/:table_id/manage' => :manage, :as => :manage
 
@@ -37,12 +36,17 @@ TAHProject::Application.routes.draw do
     get '/' => :index, :as => :index
   end
 
-  get "table_view/table_fiche"
-
-  scope :controller => 'table_view', :path => '/table_view', :as => :table_view do
-    get '/table_sample' => :table_sample, :as => :sample
+  #
+  # Table view
+  #
+  scope :controller => 'table_view', :path => '/table', :as => :table_view do
+    get '/:table_id/show' => :show, :as => :show
+    get '/sample' => :table_sample, :as => :sample
   end
 
+  #
+  # Misc
+  #
   namespace :misc do
     scope :controller => 'dish_sample', :path => '/path' do
       get 'autocomplete_dish_sample_title', :as => :autocomplete_dish_sample_title

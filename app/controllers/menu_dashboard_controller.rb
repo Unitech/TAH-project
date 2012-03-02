@@ -7,14 +7,14 @@ class MenuDashboardController < ApplicationController
     @menus = @table.menus
   end
 
-  def show
-    # @table = nil
-  end
-
-  def create_new
-    @table.menus.create :title => t('model.menu.init_new_menu'),
-                        :description => t('model.menu.init_descr'),
-                        :price => 0
+  def create_new    
+    if params[:table].presence
+      @table.menus.create params[:table]
+    else
+      @table.menus.create :title => t('model.menu.init_new_menu'),
+                          :description => t('model.menu.init_descr'),
+                          :price => 0
+    end
     # keep notice flash message
     redirect_to :back, :notice => t('notifications.menu_created')
   end

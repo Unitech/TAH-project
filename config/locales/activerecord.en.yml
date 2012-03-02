@@ -6,6 +6,9 @@ en:
         status_0 : Host
         status_1 : Guest
         status_2 : Host & Guest
+      menu:
+        category_0 : Diner
+        category_1 : Brunch
     # attributes:
     #   user:
     #     f_name: First name

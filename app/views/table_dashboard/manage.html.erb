@@ -3,6 +3,9 @@
   <div class="page-header">
     <h1>
       <%= t('table_dashboard.manage.title') %> : <%= @table.title %>
+      <small>
+	<%= link_to 'Show', table_view_show_path(params[:table_id]) %>
+      </small>
     </h1>
   </div>
 
@@ -10,7 +13,7 @@
   <%# Main image %>
   <a href="<%= table_dashboard_edit_table_path(@table) %>">
     <% if @table.main_image.presence %>
-      <%= image_tag @table.main_image.url(:table_page), :class => 'image-triggerable' %>
+      <%= image_tag @table.main_image.url(:medium), :class => 'image-triggerable' %>
     <% else %>    
       <%= image_tag 'proto/dashboard.jpg', :class => 'image-triggerable' %>
     <% end %>

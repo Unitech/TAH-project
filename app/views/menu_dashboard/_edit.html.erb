@@ -1,0 +1,13 @@
+<h2>Edit menu</h2>
+<%= semantic_form_for menu, :url => table_dashboard_menu_update_path do |f| %>
+
+  <%= f.input :title %>
+  <%= f.input :category, :as => :select, :collection => Menu::Category.ordered_values, :default => 1 %>
+  <%= f.inputs :price, :participation_cooking, :description %>
+  
+  
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+
+<% end %>
