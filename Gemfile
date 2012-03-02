@@ -30,7 +30,7 @@ gem 'exceptional'
 #
 gem 'formtastic'
 #gem 'formtastic-bootstrap'
-gem 'client_side_validations'
+#gem 'client_side_validations'
 gem 'rails3-jquery-autocomplete'
 #gem 'client_side_validations-formtastic'
 
