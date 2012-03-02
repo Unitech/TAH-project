@@ -6,7 +6,7 @@
 
 require 'bundler/capistrano'
 
-set :application, "Skynet"
+set :application, "TAH"
 
 # Must change
 set :user, 'root'
@@ -14,7 +14,7 @@ set :domain, 'missions.p3ee.com'
 set :applicationdir, "/var/www/#{application}"
 
 set :scm, :git
-set :repository,  "git@github.com:Alexandre-Strzelewicz/Gamification.git"
+set :repository,  "git@github.com:Alexandre-Strzelewicz/TAH-project.git"
 set :branch, :master
 set :scm_verbose, true
 

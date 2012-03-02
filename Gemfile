@@ -10,11 +10,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'formtastic-bootstrap'
+
 group :development do
   #
   # Prototyping
-  #
-  gem 'formtastic-bootstrap'
+  #  
 end
 
 gem 'jquery-rails'
