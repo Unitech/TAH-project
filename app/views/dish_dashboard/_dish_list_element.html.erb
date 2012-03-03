@@ -1,0 +1,10 @@
+<li class="each-dish" onclick="TAH.editDishInLine(<%= dish.id %>)">
+  <span id="title-dish">
+    <%= dish.title %>
+  </span>
+  <% if dish.main_image.presence %>
+    <span id="image-dish">
+      <%= dish.main_image.url(:small) %>
+    </span>
+  <% end %>
+</li>

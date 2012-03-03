@@ -8,6 +8,10 @@ class Static::ReferenceData
     constants.sort {|c1, c2| const_get(c1) <=> const_get(c2) }
   end
 
+  def self.size
+    constants.sort {|c1, c2| const_get(c1) <=> const_get(c2) }.size
+  end
+
   def self.name_from_value value
     attribute = name.split('::').last.underscore
     enclosing_class = name.split('::').first.underscore

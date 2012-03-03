@@ -15,3 +15,14 @@ Factory.define :table do |t|
   t.sequence(:title) { |n| "Title#{n}" }
   t.description { Faker::Lorem.paragraph }
 end
+
+Factory.define :menu do |m|
+  #m.price { rand(300) }
+  m.description { Faker::Lorem.paragraph }
+  #m.category { rand(Menu::Category.size) }
+  m.sequence(:title) { |n| "menu-#{n}" }
+end
+
+Factory.define :dish do |d|
+  d.sequence(:title) { |n| "dish-#{n}" }
+end

@@ -7,18 +7,7 @@
 	<%= link_to 'Show', table_view_show_path(params[:table_id]) %>
       </small>
     </h1>
-  </div>
-
-  
-  <%# Main image %>
-  <a href="<%= table_dashboard_edit_table_path(@table) %>">
-    <% if @table.main_image.presence %>
-      <%= image_tag @table.main_image.url(:table_page), :class => 'image-triggerable' %>
-    <% else %>    
-      <%= image_tag 'proto/dashboard.jpg', :class => 'image-triggerable' %>
-    <% end %>
-  </a>
-  
+  </div>  
 
   <div class="row show-grid">
     
@@ -28,14 +17,20 @@
       </div>
     </a>
     
-    <a href="<%= table_dashboard_menu_index_path(@table) %>">
-      <div class="span6 box-table step-<%= @table.step_two? %>">
-	<%= t('table_dashboard.manage.edit_menu') %>
-	(<%= @table.menu_count %>)
-	
+    <div class="span6 box-table step-<%= @table.step_two? %>">
+      <h2><%= t('menu_dashboard.index.title') %> </h2>
+      
+      <ul class="nav nav-list">
+	<% @menus.each_with_index do |menu, index| %>
+	  <li>
+	    <%= link_to menu.title, table_dashboard_menu_edit_path(@table, menu) %>
+	    <%= link_to 'Delete', table_dashboard_menu_destroy_path(@table, menu), :method => 'delete', :style => 'color :red;', :confirm => "#{t('menu_dashboard.index.delete_menu')} : #{menu.title} ?" %>
+	  </li>
+	<% end %>
+      </ul>
+      <%= link_to t('menu_dashboard.index.create_new_menu'), table_dashboard_menu_create_path, :method => :post, :class => 'btn' %>	
+    </div>
 
-      </div>
-    </a>
 
   </div>
 
@@ -46,8 +41,18 @@
 	<%= t('table_dashboard.manage.edit_availabilites') %>
       </div>
     </a>
-    
 
   </div>
+
+
+  <%# Main image %>
+  <a href="<%= table_dashboard_edit_table_path(@table) %>">
+    <% if @table.main_image.presence %>
+      <%= image_tag @table.main_image.url(:table_page), :class => 'image-triggerable', :height => '100' %>
+    <% else %>    
+      <%= image_tag 'proto/dashboard.jpg', :class => 'image-triggerable', :height => '32' %>
+    <% end %>
+  </a>
+
 
 </section>

@@ -1,7 +1,11 @@
 TAHProject::Application.routes.draw do
 
   devise_for :admin_users
+  devise_for :users
 
+  #
+  # Table Dashboard
+  #
   scope :controller => 'table_dashboard', :path => '/table_dashboard/', :as => :table_dashboard do
 
     get '/:table_id/edit_table' => :edit_table, :as => :edit_table
@@ -12,16 +16,17 @@ TAHProject::Application.routes.draw do
 
     scope :controller => 'menu_dashboard', :path => '/:table_id/menu', :as => :menu do
       get '/index' => :index, :as => :index
+      get '/new' => :new, :as => :new
       get '/:menu_id/edit' => :edit, :as => :edit
-      get '/create_new' => :create_new, :as => :create_new
-      delete '/:menu_id/delete' => :delete, :as => :delete
+      post '/create' => :create, :as => :create
+      delete '/:menu_id/destroy' => :destroy, :as => :destroy
       put '/:menu_id/update' => :update, :as => :update
       
       scope :controller => 'dish_dashboard', :path => '/:menu_id/dish/', :as => :dish do
         get '/index' => :index, :as => :index
         get '/:dish_id/edit' => :edit, :as => :edit
         put '/:dish_id/update' => :update, :as => :update
-        delete '/:dish_id/delete' => :delete, :as => :delete
+        delete '/:dish_id/destroy' => :destroy, :as => :destroy
         post '/create' => :create, :as => :create
         
       end
@@ -52,10 +57,6 @@ TAHProject::Application.routes.draw do
       get 'autocomplete_dish_sample_title', :as => :autocomplete_dish_sample_title
     end
   end
-
-  devise_for :users
-  
-
  
   get 'sitemap.xml' => 'sitemaps#sitemap'  
   root :to => 'home#index'

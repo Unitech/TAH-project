@@ -1,28 +1,25 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag 'calendar/jquery-ui-1.8.11.custom.min.js' %>
   <script>
-    $().ready(function() {
-    TAH.addDishAjax();
-    
-    });
+    $().ready(function() {TAH.addDishAjax();});
   </script>
 <% end %>
 
-<h2>Dishes list</h2>
-
 <div class="well">
+  <h2><i>"La carte"</i></h2>
   <!-- Warning dish-list must stay arround the list of menus -->
   <ul class="nav nav-list dish-append">
     <% @menu.dishes.each do |dish| %>
-      <li><%= dish.title %></li>
+      <%= render :partial => 'dish_dashboard/dish_list_element', :locals => {:dish => dish} %>
     <% end %>
   </ul>
 </div>
 
 <div class="add-dish well">
   <h3>Add dish</h3>
+  <span id="ajax-error-message"></span>
   <br/>
-  <%= semantic_form_for :dish, :html => {:id => 'add-dish-ajax'}, :remote => true, :url => table_dashboard_menu_dish_create_path do |f| %>
+  <%= semantic_form_for :dish, :html => {:id => 'add-dish-ajax'}, :remote => true, :failure => 'alert("lol")', :url => table_dashboard_menu_dish_create_path do |f| %>
     <%= f.input :title, :as => :autocomplete, :url => misc_autocomplete_dish_sample_title_path %>
     <%= f.inputs :description, :position %>
     

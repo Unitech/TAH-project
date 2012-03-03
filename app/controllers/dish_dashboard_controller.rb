@@ -1,7 +1,6 @@
 class DishDashboardController < ApplicationController
   before_filter :authenticate_user!
-  # method in application_controller
-  before_filter :table_belongs_to_user
+  before_filter :table_belongs_to_user?
 
   def index
   end
@@ -13,20 +12,25 @@ class DishDashboardController < ApplicationController
   end
 
   def create
-    @dish = @table.menus.find(params[:menu_id]).dishes.new(params[:dish])
-    if @dish.save      
-      render :json => { 
-        :success => true, 
-        :new_id => @dish.id 
-      }      
-    else
-      render :json => { 
-        :success => false
-      }      
+    if !request.xhr?
+      throw "(TODO) not an xhr request"
     end
-    #redirect_to :back, :notice => t('notifications.menu_created')
+
+    @dish = @table.menus.find(params[:menu_id]).dishes.new(params[:dish])
+        
+    if @dish.save
+      dish_el = render_to_string(partial: 'dish_dashboard/dish_list_element', 
+                                 locals: { :dish => @dish })
+      render :json => { 
+        :status => :created,
+        :partial => dish_el.to_s
+      }
+    else
+      render :json => @dish.errors,         
+             :status => :not_acceptable
+    end
   end
 
-  def delete
+  def destroy
   end
 end

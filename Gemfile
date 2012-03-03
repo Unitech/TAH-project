@@ -10,12 +10,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-
-
 group :development do
-  #
-  # Prototyping
-  #  
+  gem 'guard-annotate'
 end
 
 gem 'jquery-rails'

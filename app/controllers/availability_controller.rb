@@ -1,7 +1,7 @@
 class AvailabilityController < ApplicationController
   before_filter :authenticate_user!
   # method defined in application_controller
-  before_filter :table_belongs_to_user
+  before_filter :table_belongs_to_user?
 
   def create
     load_menu

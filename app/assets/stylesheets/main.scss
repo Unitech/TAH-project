@@ -19,14 +19,15 @@
 
 .box-table {
     background-color: #EEE;
-text-align: center;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
-height: 130px;
-line-height: 130px;
-margin-bottom : 10px;
-font-size : 17px;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    min-height : 130px;
+
+    padding : 15px 0px;
+    margin-bottom : 10px;
+    font-size : 17px;
 }
 
 .step-true {

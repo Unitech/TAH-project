@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   protected
-  def table_belongs_to_user
+  def table_belongs_to_user?
     begin
       @table = Table.find(params[:table_id])
 

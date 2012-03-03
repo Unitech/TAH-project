@@ -1,14 +1,43 @@
 class Menu < ActiveRecord::Base
   belongs_to :table
   has_many :dishes, :dependent => :destroy
-  accepts_nested_attributes_for :dishes, :reject_if => lambda { |a| a[:title].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :dishes, 
+                                :reject_if => lambda { |a| a[:title].blank? }, 
+                                :allow_destroy => true
 
   has_many :availabilities, :dependent => :destroy
 
-  class Category < Static::ReferenceData
+  class Category < Static::ReferenceData    
     DINER = 0
     BRUNCH = 1
   end
+
+  #
+  # Validation
+  #
+  validates :title,
+            :presence => true,
+            :length => { :minimum => 2, :maximum => 160 }
+            
+  validates :description,
+            :presence => true
+
+  validates :price, 
+            :numericality => true,
+            :inclusion => 1..3000,
+            :if => Proc.new { |menu| menu.price.presence }
+ 
+  validates :category,
+            :inclusion => 0..self::Category.size,
+            :numericality => true,
+            :if => Proc.new { |menu| menu.category.presence }
+
+  validates :table_id,
+            :presence => true,
+            :numericality => true
+
+
+  # "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}" 
 
   def to_param
     self.id.to_s + '-' + self.title.parameterize

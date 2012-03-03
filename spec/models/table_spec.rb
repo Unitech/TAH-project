@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 require 'spec_helper'
 
 describe Table do
   
   before :each do
-    @table = Factory(:table)
+    @user = Factory(:user)
+    @table = Factory(:table, :user => @user)
   end
 
   describe "Empty table " do 
@@ -24,19 +26,31 @@ describe Table do
       @table.menu_count.should == 0
     end
     
-    it "fail when title missing" do
+    it "fails when title missing" do
       @table = Table.new(:description => 'asdasd')
       @table.should_not be_valid      
     end
 
-    it "fail when desct missing" do
+    it "fails when desct missing" do
       @table = Table.new(:title => 'asdasd')
       @table.should_not be_valid
     end
 
-    it "succed when field title and description are filled" do
-      @table = Table.new(:title => 'sasadsad', :description => 'asdasdsd')
+    it "succeed when all validations are okey" do
+      @table = Table.new(:title => 'sasadsad', 
+                         :description => 'asdasdsd', 
+                         :user => @user)
       @table.should be_valid
+    end
+    
+    it "has no table" do
+      @table.menu_count.should == 0
+    end
+
+    it "to_params has no special caracter" do
+      @table = Factory(:table, 
+                       :user => @user, 
+                       :title => 'éo|soisosiaod3edq3éééà')
     end
   end
 

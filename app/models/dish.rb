@@ -1,7 +1,18 @@
 class Dish < ActiveRecord::Base
   belongs_to :menu
   
-  validates_presence_of :title
+  validates :title,
+            :presence => true,
+            :length => { :minimum => 3, :maximum => 160 }
+  
+  validates :menu_id,
+            :presence => true,
+            :numericality => true
+
+  has_attached_file :main_image, :styles => { 
+    :small => "50x50#",
+    :medium => "150x150#"
+  }
 
 end
 

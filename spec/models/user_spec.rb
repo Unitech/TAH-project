@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  #include Devise::TestHelpers
   
   before(:each) do
     @user = Factory(:user)
@@ -13,6 +12,14 @@ describe User do
     User::Status::HOST_N_GUEST.should equal 2
   end
 
+  it "fails when wrong email" do
+    lambda {
+      @user = Factory(:user,
+                      :f_name => 'asddsa',
+                      :l_name => 'ooooo',
+                      :email => 'asdsdadaasd')
+    }.should raise_error(ActiveRecord::RecordInvalid)
+  end
   
 end
 

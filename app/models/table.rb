@@ -9,13 +9,20 @@ class Table < ActiveRecord::Base
     :icon => "50x50#"
   }
   
-  # validates_attachment_presence :main_image
-  # validates_attachment_size :main_image, :less_than => 5.megabytes
-  # validates_attachment_content_type :main_image, :content_type => ['image/jpeg', 'image/png']
+  validates_attachment_size :main_image, :less_than => 5.megabytes
+  validates_attachment_content_type :main_image, :content_type => ['image/jpeg', 'image/png']
 
-  validates_presence_of :title
-  validates_presence_of :description
+  validates :title,
+            :presence => true,
+            :length => { :minimum => 2, :maximum => 160 }
 
+  validates :description,
+            :presence => true
+
+  validates :user_id,
+            :presence => true,
+            :numericality => true
+  
   def table_belongs_to_user? user
     if self.user_id == user.id
       return true

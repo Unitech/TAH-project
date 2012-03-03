@@ -2,6 +2,22 @@ require 'spec_helper'
 
 describe TableDashboardController do
   include Devise::TestHelpers
+
+  describe "test views" do
+    it "succeed accessing index" do
+      get :index
+    end
+
+    it "succeed accessing manage" do
+      get :manage
+    end
+
+    it "succeed accessing edit availabilities" do
+      get :edit_availabilities
+    end
+
+    
+  end
     
   describe "not logged user" do
     it "fail to access to dashboard" do

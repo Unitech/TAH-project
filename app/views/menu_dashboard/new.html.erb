@@ -1,0 +1,20 @@
+
+<section>
+  <div class="page-header">
+    <h1>
+      <%= t('menu_dashboard.edit.title') %> : <%= @menu.title %>
+    </h1>
+  </div>
+
+
+
+  <div class="row">
+
+    <div class="span4">
+      <h2>New Menu</h2>
+      <%= render :partial => 'menu_dashboard/form', :locals => { :menu => @menu } %>
+    </div>
+
+  </div>
+</section>
+

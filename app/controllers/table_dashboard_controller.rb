@@ -1,14 +1,12 @@
 class TableDashboardController < ApplicationController
   before_filter :authenticate_user!
-  # method in application_controller
-  before_filter :table_belongs_to_user, :except => [:index, :create_new]
+  before_filter :table_belongs_to_user?, :except => [:index, :create_new]
 
   def index
     @tables = current_user.tables
   end
 
   def create_new
-    
     if params[:table].presence
       @new_table = current_user.tables.new(params[:table])
     else
@@ -19,12 +17,12 @@ class TableDashboardController < ApplicationController
     if @new_table.save
       redirect_to :back, :notice => t('notifications.table_created')
     else
-      throw @new_table.errors
       redirect_to :back, :notice => t('notifications.fail')
     end
   end
 
   def manage
+    @menus = @table.menus
   end
 
   def edit_table
@@ -34,7 +32,8 @@ class TableDashboardController < ApplicationController
     if @table.update_attributes(params[:table])
       redirect_to table_dashboard_manage_path(@table)
     else
-      throw 'Error unknown in update_table'
+      flash[:error] = t('notifications.fail')
+      render :edit_table
     end
   end
 
