@@ -1,10 +1,24 @@
-<li class="each-dish" onclick="TAH.editDishInLine(<%= dish.id %>)">
-  <span id="title-dish">
-    <%= dish.title %>
-  </span>
-  <% if dish.main_image.presence %>
-    <span id="image-dish">
-      <%= dish.main_image.url(:small) %>
+<li class="each-dish" onclick="TAH.editDishInLine(this, <%= dish.id %>)">
+  <span id="each-show">
+    <span id="title-dish">
+      <%= dish.title %>
     </span>
-  <% end %>
+    <% if dish.main_image.presence %>
+      <span id="image-dish">
+	<%= dish.main_image.url(:small) %>
+      </span>
+    <% end %>
+  </span>
+
+  <span id="each-hide">
+    <br/>
+    <span id="delete-dish">
+      <%#= link_to 'Delete', table_dashboard_menu_dish_destroy_path(table, menu, dish), :method => :delete %>
+      Delete
+    </span>
+    <span id="update-dish">
+      Update
+      <%#= link_to 'Update', table_dashboard_menu_dish_destroy_path(table, menu, dish), :method => :delete %>
+    </span>
+  </span>
 </li>

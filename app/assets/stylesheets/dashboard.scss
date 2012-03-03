@@ -8,7 +8,6 @@
     padding : 4px 6px;
     @include transition(0.3s);
     &:hover {
-	opacity : 0.5;
 	cursor : pointer;
     }
     #title-dish {
@@ -17,6 +16,14 @@
     #image-dish {
 	float : right;
     }
+
+    #each-hide {
+	display : none;
+    }
+}
+
+.selected-dish {
+    height : 60px;
 }
 
 .formtastic {

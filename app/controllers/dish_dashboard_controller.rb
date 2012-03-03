@@ -19,8 +19,10 @@ class DishDashboardController < ApplicationController
     @dish = @table.menus.find(params[:menu_id]).dishes.new(params[:dish])
         
     if @dish.save
+
       dish_el = render_to_string(partial: 'dish_dashboard/dish_list_element', 
-                                 locals: { :dish => @dish })
+                                 locals: { :dish => @dish, :table => @table, :menu => Menu.find(params[:menu_id]) })
+
       render :json => { 
         :status => :created,
         :partial => dish_el.to_s

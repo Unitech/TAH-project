@@ -10,7 +10,7 @@
   <!-- Warning dish-list must stay arround the list of menus -->
   <ul class="nav nav-list dish-append">
     <% @menu.dishes.each do |dish| %>
-      <%= render :partial => 'dish_dashboard/dish_list_element', :locals => {:dish => dish} %>
+      <%= render :partial => 'dish_dashboard/dish_list_element', locals: { :dish => dish, :table => @table, :menu => @menu } %>
     <% end %>
   </ul>
 </div>

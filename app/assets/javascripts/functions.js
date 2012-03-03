@@ -51,6 +51,21 @@ TAH.addDishAjax = function() {
 	});
 };
 
-TAH.editDishInLine = function(id) {
+TAH.editDishInLine = function(el, id) {
+    $this = $(el);
+    
+    $('.each-dish').each(function() {
+	$(this).removeClass('selected-dish');
+	var title = $(this).find('#edit-area').val();
 
+	$(this).find('#each-hide').hide();
+	
+	if (title != undefined)
+	    $(this).find('#edit-area').replaceWith('<span id="title-dish">' + title + '</span>');
+    });
+    
+    $this.addClass('selected-dish');
+    $this.find('#each-hide').show();
+    var title = $this.find('#title-dish').html();
+    $this.find('#title-dish').replaceWith('<input type="text" id="edit-area" value="' + title + '"/>');
 };
