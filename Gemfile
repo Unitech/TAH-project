@@ -13,8 +13,9 @@ end
 
 group :development do
   gem 'guard-annotate'
-  gem 'rails-footnotes', :git => 'https://github.com/josevalim/rails-footnotes.git'
 end
+
+gem 'rails-footnotes', :git => 'https://github.com/josevalim/rails-footnotes.git'
 
 gem 'jquery-rails'
 
