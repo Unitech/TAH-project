@@ -4,6 +4,8 @@ class TableDashboardController < ApplicationController
 
   def index
     @tables = current_user.tables
+    #throw "#{params[:controller]}"
+    #throw "#{controller_name} #{action_name}"
   end
 
   def create_new

@@ -2,7 +2,8 @@
 en:
   notifications:
     table_created : Table created !
-    menu_created : The menu was successfully created !
     fail: Problem in the form
     menu:
-      updated: Succesfully updated
+      updated: Successfully updated
+      created : The menu was successfully created !
+      max : You can't create more menus 

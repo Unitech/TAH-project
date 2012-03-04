@@ -11,13 +11,20 @@ class MenuDashboardController < ApplicationController
   end
 
   def create
+    
+    if @table.menus.count >= MAX_MENU
+      flash[:notice] = t('notifications.menu.max')
+      redirect_to table_dashboard_manage_path(@table)
+      return 
+    end
+
     if params[:menu].presence
       @menu = @table.menus.create params[:menu]
     else
       @menu = @table.menus.create :title => t('model.menu.init_new_menu'),
             :description => t('model.menu.init_descr')
     end
-    flash[:notice] = t('notifications.menu_created')
+    flash[:notice] = t('notifications.menu.created')
     redirect_to :action => :edit, :menu_id => @menu.to_param
   end
 

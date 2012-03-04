@@ -41,6 +41,13 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :status
 
+  def to_label
+    "#{self.f_name} #{self.l_name}"
+  end
+
+  alias :to_s :to_label 
+  # alias :to_param :to_label
+
   #
   # Some scopes
   #

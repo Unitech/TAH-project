@@ -10,6 +10,9 @@ TAH.clickTriggerUpload = function(el_triggered, upload_trigger) {
     $(el_triggered).click(function() {
 	$(upload_trigger).trigger('click');
     });
+    $(upload_trigger).change(function() {
+	$('#trigger_upload_field').css({'opacity' : 0.2});
+    });
 };
 
 /*

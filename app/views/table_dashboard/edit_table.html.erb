@@ -1,4 +1,12 @@
 
+<% content_for :javascripts do %>
+  <script>
+    $().ready(function() {
+    TAH.clickTriggerUpload($('#trigger_upload_field'), $('#table_main_image'));
+    });
+  </script>
+<% end %>
+
 <section>
   <div class="page-header">
     <h1>
@@ -26,25 +34,17 @@
 	<% else %>
 	  <%= image_tag 'proto/sal.jpg', :id => 'trigger_upload_field', :class => 'image-triggerable' %>
 	<% end %>
-	<% content_for :javascripts do %>
-	  <script>
-	    $().ready(function() {
-	    TAH.clickTriggerUpload($('#trigger_upload_field'), $('#table_main_image'));
-	    });
-	  </script>
-	<% end %>
+      <%# end %>
+      
 
-	<%# end %>
-
-
-	<%= f.inputs :title, :description %>
-		
-	<%= f.buttons do %>
-	  <%= f.commit_button %>
-	<% end %>
+      <%= f.inputs :title, :description %>
+      
+      <%= f.buttons do %>
+	<%= f.commit_button %>
       <% end %>
+<% end %>
 
-    </div>
+</div>
 
-  </div>
+</div>
 </section>

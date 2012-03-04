@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/josevalim/rails-footnotes.git
+  revision: f0a83c503a4712628e40bec8efb5c9ffe996402b
+  specs:
+    rails-footnotes (3.7.5)
+      rails (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -224,6 +231,7 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 2.7.0)
   rails (= 3.2.1)
+  rails-footnotes!
   rails3-jquery-autocomplete
   rspec-rails
   sass-rails (~> 3.2.3)
