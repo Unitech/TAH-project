@@ -223,6 +223,7 @@ DEPENDENCIES
   devise (~> 2.0.4)
   dynamic_sitemaps
   exceptional
+  execjs
   factory_girl_rails
   ffaker
   formtastic

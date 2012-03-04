@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 
+gem 'execjs'
 gem 'sqlite3'
 gem 'mysql2'
 
