@@ -3,13 +3,13 @@ if defined?(Footnotes) && Rails.env.development?
 
   Footnotes::Filter.notes = [:integration, :javascripts, :current_user, :queries, :log]
   # ... other init code
-end
+
 
 #
 # Show view
-#
-module Footnotes
-  module Notes
+  #
+  module Footnotes
+    module Notes
     class IntegrationNote < AbstractNote
       def initialize(controller)
         @params = controller.params.symbolize_keys
@@ -66,4 +66,6 @@ module Footnotes
       end
     end
   end
+end
+
 end
