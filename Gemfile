@@ -12,6 +12,7 @@ end
 
 group :development do
   gem 'guard-annotate'
+  #gem 'rails-footnotes'
 end
 
 gem 'jquery-rails'

@@ -1,7 +1,7 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag 'calendar/jquery-ui-1.8.11.custom.min.js' %>
   <script>
-    $().ready(function() {TAH.addDishAjax();});
+    $().ready(function() { TAH.addDishAjax(); });
   </script>
 <% end %>
 
@@ -21,7 +21,8 @@
   <br/>
   <%= semantic_form_for :dish, :html => {:id => 'add-dish-ajax'}, :remote => true, :failure => 'alert("lol")', :url => table_dashboard_menu_dish_create_path do |f| %>
     <%= f.input :title, :as => :autocomplete, :url => misc_autocomplete_dish_sample_title_path %>
-    <%= f.inputs :description, :position %>
+    <%= f.input :description %>
+    <%= f.input :position, :required => false %>
     
     <%= f.buttons do %>
       <%= f.commit_button t('menu_dashboard.edit.add_dish') %>
