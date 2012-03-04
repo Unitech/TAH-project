@@ -19,7 +19,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  reconnect: true
+  adapter: mysql2  # Rails 3.x uses the mysql2 adapter
+  database: tah_pre
   pool: 5
-  timeout: 5000
+  username: root
+  password: <%= begin IO.read("/var/www/TAH/pss") rescue "" end %>

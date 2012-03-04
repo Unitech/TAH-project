@@ -10,7 +10,7 @@ set :application, "TAH"
 
 # Must change
 set :user, 'root'
-set :domain, 'missions.p3ee.com'
+set :domain, '87.98.152.77'
 set :applicationdir, "/var/www/#{application}"
 
 set :scm, :git
@@ -37,7 +37,7 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
 
 # Set ruby version for rvm
-set :rvm_ruby_string, '1.9.2-p290'
+#set :rvm_ruby_string, '1.9.2-p290'
 
 after "deploy:update_code", "deploy:migrate", "deploy:pipeline_precompile", "deploy:stop", "deploy:start"
 
