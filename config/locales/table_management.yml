@@ -12,6 +12,11 @@ en:
     edit_table:
       title : Edit my table
       descr : here you edit all informations about the table
+      localisation : Localisation
+      general : General informations
+    map:
+      more_accurate : Please be more accurate 
+      success : Your address has been saved
     availabilities:
       title : Menu Availabilities Calendar
       descr : For each menu

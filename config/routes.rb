@@ -13,6 +13,7 @@ TAHProject::Application.routes.draw do
     get '/:table_id/edit_availabilities' => :edit_availabilities, :as => :edit_availabilities
     post '/create_new' => :create_new, :as => :create_new
     get '/:table_id/manage' => :manage, :as => :manage
+    delete '/:table_id/destroy' => :destroy, :as => :destroy
 
     scope :controller => 'menu_dashboard', :path => '/:table_id/menu', :as => :menu do
       get '/index' => :index, :as => :index
@@ -36,6 +37,11 @@ TAHProject::Application.routes.draw do
       post '/update' => :update, :as => :update
       post '/create' => :create, :as => :create
       post '/delete' => :delete, :as => :delete
+    end
+
+    scope :controller => 'address', :path => '/:table_id/address', :as => :address do
+      post '/create' => :create, :as => :create
+      post '/update' => :update, :as => :update
     end
 
     get '/' => :index, :as => :index

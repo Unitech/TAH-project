@@ -4,8 +4,6 @@ class TableDashboardController < ApplicationController
 
   def index
     @tables = current_user.tables
-    #throw "#{params[:controller]}"
-    #throw "#{controller_name} #{action_name}"
   end
 
   def create_new
@@ -28,6 +26,7 @@ class TableDashboardController < ApplicationController
   end
 
   def edit_table
+    @address = @table.address
   end
 
   def update_table
@@ -51,6 +50,11 @@ class TableDashboardController < ApplicationController
       end
     end
     
+  end
+
+  def destroy
+    @table.destroy
+    redirect_to :back, :notice => t('notifications.successfully_deleted')
   end
 
 end

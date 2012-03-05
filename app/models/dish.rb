@@ -8,6 +8,10 @@ class Dish < ActiveRecord::Base
   validates :menu_id,
             :presence => true,
             :numericality => true
+  
+  validates :description,
+            :presence => true
+
 
   has_attached_file :main_image, :styles => { 
     :small => "50x50#",

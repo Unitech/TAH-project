@@ -56,6 +56,7 @@ describe Table do
 
 end
 
+
 # == Schema Information
 #
 # Table name: tables
@@ -73,5 +74,6 @@ end
 #  main_image_content_type :string(255)
 #  main_image_file_size    :integer
 #  main_image_updated_at   :datetime
+#  address_id              :integer
 #
 

@@ -55,5 +55,34 @@ TAH.addDishAjax = function() {
 };
 
 TAH.editDishInLine = function(id) {
+};
 
+/*
+ * table_dashboard/edit_table.html.erb
+ */
+
+TAH.editTable = function() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyC6eDspYVOXJaAIxLwq93QcVWFJUf_sXVc&sensor=false&callback=initialize_gmap";
+    document.body.appendChild(script);
+
+};
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+	var name = this.name.replace(/.*\[|\]/gi,'');
+        if (o[name] !== undefined) {
+            if (!o[name].push) {
+                o[name] = [o[name]];
+            }
+            o[name].push(this.value || '');
+        } else {
+            o[name] = this.value || '';
+        }
+    });
+    return o;
 };

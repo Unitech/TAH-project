@@ -23,6 +23,7 @@
 	    <li style="margin-bottom : 4px; padding-bottom : 6px;border-bottom : 1px solid silver;">
 	      <%= link_to table.title, table_dashboard_manage_path(table) %>
 	      Menus : <%= table.menu_count %>
+	      <%= link_to 'Delete', table_dashboard_destroy_path(table), :method => 'delete', :style => 'color :red;', :confirm => "#{t('notifications.destroy')} : #{table.title} ?" %>
 	    </li>
 	  <% end %>
 	</ul>

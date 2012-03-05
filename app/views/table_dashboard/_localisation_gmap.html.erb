@@ -1,0 +1,37 @@
+
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag 'google_map.js' %>
+  
+  <script>
+    window.map_lang = {
+    accurate : '<%= t('table_dashboard.map.more_accurate') %>',
+    success : '<%= t('table_dashboard.map.success') %>'
+    }
+  </script>
+
+<% end %>
+
+<% if address.presence %>
+  <div id="google_map" latitude="<%= address.latitude %>" longitude="<%= address.longitude %>">
+  <% else %>
+    <div id="google_map" latitude="" longitude="">
+<% end %>
+
+<%= semantic_form_for :address, :url => table_dashboard_address_create_path do |f| %>
+  <div id="info-message"></div>
+  <%= f.inputs :address1, :city, :zipcode, :country %>
+  
+  <%= f.input :longitude, :as => :hidden %>
+  <%= f.input :latitude, :as => :hidden %>
+  <%= f.input :id, :as => :hidden %>
+  
+
+  <%= f.buttons do %>
+    <input value="search" id="search_map" type="submit">
+    <input class="submit" name="commit" type="submit" value="Submit Address" style="display: inline-block; ">
+  <% end %>
+
+<% end %>
+<div id="map_canvas" style="width:450px; height:300px;"></div>
+
+</div>

@@ -13,7 +13,7 @@ class MenuDashboardController < ApplicationController
   def create
     
     if @table.menus.count >= MAX_MENU
-      flash[:notice] = t('notifications.menu.max')
+      flash[:error] = t('notifications.menu.max')
       redirect_to table_dashboard_manage_path(@table)
       return 
     end

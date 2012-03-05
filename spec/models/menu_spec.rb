@@ -23,3 +23,25 @@ describe Menu do
   end
   
 end
+
+# == Schema Information
+#
+# Table name: menus
+#
+#  id                      :integer         not null, primary key
+#  status                  :integer
+#  title                   :string(255)
+#  price                   :integer
+#  option                  :text
+#  description             :text
+#  participation_cooking   :boolean
+#  table_id                :integer
+#  created_at              :datetime        not null
+#  updated_at              :datetime        not null
+#  main_image_file_name    :string(255)
+#  main_image_content_type :string(255)
+#  main_image_file_size    :integer
+#  main_image_updated_at   :datetime
+#  category                :integer
+#
+

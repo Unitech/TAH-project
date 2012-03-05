@@ -3,7 +3,10 @@ en:
   notifications:
     table_created : Table created !
     fail: Problem in the form
+    destroy : Are you sur to delete 
+    successfully_deleted : Successfully deleted !
     menu:
       updated: Successfully updated
       created : The menu was successfully created !
       max : You can't create more menus 
+      
