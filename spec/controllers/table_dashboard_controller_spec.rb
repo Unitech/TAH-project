@@ -1,5 +1,10 @@
 require 'spec_helper'
 
+module DisableFlashSweeping
+  def sweep
+  end
+end
+
 describe TableDashboardController do
   include Devise::TestHelpers
 
@@ -14,9 +19,7 @@ describe TableDashboardController do
 
     it "succeed accessing edit availabilities" do
       get :edit_availabilities
-    end
-
-    
+    end    
   end
     
   describe "not logged user" do
@@ -45,7 +48,7 @@ describe TableDashboardController do
       request.env["HTTP_REFERER"] = '/'
     end
 
-    it "succed to acces to the dashboard" do
+    it "succed to access to the dashboard" do
       response.should be_success
     end
 
@@ -85,6 +88,22 @@ describe TableDashboardController do
       @table.title.should == 'test'
       @table.description.should == 'ayay'
     end
+
+    # it "cant access to availabilities if no menu" do
+    #   # @controller.instance_eval { flash.extend(DisableFlashSweeping) }
+    #   get :edit_availabilities
+    #   #flash[:error].should_not be_nil
+    #   response.should be_redirect      
+    # end
+
+    # it "can acces to availabilities if menu" do
+    #   # @user = Factory(:user)
+    #   post :create_new, {:table => {:title => 'test', :description => 'ayay'}}
+    #   # @table = Factory(:table, :user => @user)
+    #   # @menu = Factory(:menu, :table => @table)
+    #   get :edit_availabilities
+    #   response.should_not be_redirect      
+    # end
 
   end  
   

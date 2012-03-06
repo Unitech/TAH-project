@@ -6,7 +6,7 @@
   
   <%= f.inputs :email, :password %>
   <%= f.buttons do %>
-    <%= f.commit_button %>
+    <%= f.commit_button  :button_html => { :id => "submit_btn" }%>
   <% end %>
 <% end %>
 

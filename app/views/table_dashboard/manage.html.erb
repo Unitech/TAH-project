@@ -28,7 +28,7 @@
 	  </li>
 	<% end %>
       </ul>
-      <%= link_to t('menu_dashboard.index.create_new_menu'), table_dashboard_menu_create_path, :method => :post, :class => 'btn' %>	
+      <%= link_to t('menu_dashboard.index.create_new_menu'), table_dashboard_menu_create_path, :method => :post, :class => 'btn', :id => 'new_menu' %>	
     </div>
 
 
@@ -36,7 +36,7 @@
 
   <div class="row">
     
-    <a href="<%= table_dashboard_edit_availabilities_path(@table) %>">
+    <a href="<%= table_dashboard_edit_availabilities_path(@table) %>" id="access_availabilities">
       <div class="span12 box-table step-<%= @table.step_three? %>">
 	<%= t('table_dashboard.manage.edit_availabilites') %>
       </div>

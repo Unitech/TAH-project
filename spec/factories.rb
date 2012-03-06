@@ -25,4 +25,5 @@ end
 
 Factory.define :dish do |d|
   d.sequence(:title) { |n| "dish-#{n}" }
+  d.sequence(:description) { |n| "desc-#{n}" }
 end

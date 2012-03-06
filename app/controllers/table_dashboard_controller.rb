@@ -40,6 +40,8 @@ class TableDashboardController < ApplicationController
 
   def edit_availabilities
 
+    #throw 'lol'
+
     if @table.menus.count == 0
       flash[:error] = t('notifications.availabilities.must_create_menu')
       redirect_to :back

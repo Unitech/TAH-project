@@ -9,7 +9,7 @@ describe Dish do
       @dish = Factory(:dish, :menu => @menu)
     end
 
-    it "fails when no title" do
+    it "must fails when no title" do
       @dish = Dish.create(:description => 'asdasd', :menu => @menu)
       @dish.should_not be_valid
     end
