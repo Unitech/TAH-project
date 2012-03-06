@@ -39,6 +39,12 @@ class TableDashboardController < ApplicationController
   end
 
   def edit_availabilities
+
+    if @table.menus.count == 0
+      flash[:error] = t('notifications.availabilities.must_create_menu')
+      redirect_to :back
+    end
+
     @interval = Array.new
 
     @menus = @table.menus.includes(:availabilities)

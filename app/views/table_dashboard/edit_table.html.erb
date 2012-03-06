@@ -28,7 +28,7 @@
       
       <h2><%= t('table_dashboard.edit_table.general') %></h2>
 
-	<%= semantic_form_for @table, :url => table_dashboard_update_table_path do |f| %>
+      <%= semantic_form_for @table, :url => table_dashboard_update_table_path do |f| %>
 
 	<%# Image click handling %>
 	<%= f.input :main_image, :input_html => { :style => 'opacity : 0; position : absolute;'}  %>
@@ -40,7 +40,8 @@
       <%# end %>
       
 
-      <%= f.inputs :title, :description %>
+      <%= f.input :title %>
+      <%= f.input :description %>
 
       
       <%= f.buttons do %>

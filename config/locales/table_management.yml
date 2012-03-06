@@ -15,8 +15,12 @@ en:
       localisation : Localisation
       general : General informations
     map:
+      address : Address
       more_accurate : Please be more accurate 
       success : Your address has been saved
+      launch_search : Launch Search
+      submit_address : Submit Address
+      additionnal : Additional informations
     availabilities:
       title : Menu Availabilities Calendar
       descr : For each menu

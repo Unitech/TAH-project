@@ -131,8 +131,19 @@ function initialize_gmap() {
 		radius: 70
 	    };
 	    
+	    
 	    map.setCenter(coordinates);
-	    map.setZoom(16);
+
+	    var zoom = 10;
+	    (function smoothZoom() {
+		map.setZoom(zoom);
+		zoom++;
+		if (zoom == 17)
+		    return;
+		setTimeout(smoothZoom, 160);
+	    })();
+
+
 
 	    zoneCircle = new google.maps.Circle(zone);
 	    

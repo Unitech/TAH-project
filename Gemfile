@@ -24,6 +24,7 @@ gem 'jquery-rails'
 # Services
 #
 gem 'exceptional'
+gem 'newrelic_rpm'
 
 #
 # Core

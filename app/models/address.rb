@@ -5,25 +5,26 @@ class Address < ActiveRecord::Base
   validates :address1,
             :presence => true
   
-  # validates :city,
-  #           :presence => true
+  validates :city,
+            :presence => true
 
-  # validates :zipcode,
-  #           :presence => true
+  validates :zipcode,
+            :presence => true
 
-  # validates :country,
-  #           :presence => true
+  validates :country,
+            :presence => true
 
-  # validates :longitude,
-  #           :presence => true,
-  #           :numericality => true
+  validates :longitude,
+            :presence => true,
+            :numericality => true
 
-  # validates :latitude,
-  #           :presence => true,
-  #           :numericality => true
+  validates :latitude,
+            :presence => true,
+            :numericality => true
 
-  #attr_protected :id
+  attr_protected :id
 
+  
   
 end
 
