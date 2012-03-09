@@ -1,9 +1,21 @@
 
 <%= semantic_form_for menu, :url => table_dashboard_menu_update_path do |f| %>
+  
+  <%# Image click handling %>
+  <%= f.input :main_image, :input_html => { :style => 'opacity : 0; position : absolute;'}  %>
+  <% if @menu.main_image.presence %>
+    <%= image_tag @menu.main_image.url(:small), :id => 'trigger_upload_field', :class => 'image-triggerable' %>
+  <% else %>
+    <%= image_tag 'proto/sal.jpg', :id => 'trigger_upload_field', :class => 'image-triggerable' %>
+  <% end %>
+  <%# end %>
+      
+
   <%= f.input :title %>
   <%= f.input :category, :as => :select, :collection => Menu::Category.ordered_values, :include_blank => false %>
-  <%= f.inputs :price, :participation_cooking, :description %>
-  
+  <%= f.input :price %>
+  <%= f.input :participation_cooking %>
+  <%= f.input :description, :as => :text, :input_html => { :rows => 20 } %>
   
   <%= f.buttons do %>
     <%= f.commit_button %>

@@ -28,7 +28,7 @@ en:
       end_time : End time
       date : Date
       menu : Select the menu
-      
+    
   menu_dashboard:
     index:
       title : My menus
@@ -39,5 +39,7 @@ en:
       title : Edit the menu
       dishes : Dishes
       add_dish : Add Dish
-  dishes:
+  dish_dashboard:
+    edit:
+      title : Edit dish
     

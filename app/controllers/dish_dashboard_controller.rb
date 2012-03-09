@@ -6,9 +6,27 @@ class DishDashboardController < ApplicationController
   end
 
   def edit
+    @dish = @table
+      .menus
+      .find(params[:menu_id])
+      .dishes
+      .find(params[:dish_id])    
   end
 
   def update
+    @dish = @table
+      .menus
+      .find(params[:menu_id])
+      .dishes
+      .find(params[:dish_id])    
+
+    if @dish.update_attributes(params[:dish])
+      redirect_to table_dashboard_menu_edit_path, 
+                  :notice => t('notifications.menu.updated')
+    else
+      flash[:error] = t('notifications.fail')      
+      render :action => :edit
+    end
   end
 
   def create
@@ -16,7 +34,22 @@ class DishDashboardController < ApplicationController
       throw "(TODO) not an xhr request"
     end
 
-    @dish = @table.menus.find(params[:menu_id]).dishes.new(params[:dish])
+    @dish_sample = DishSample
+      .where(:title => params[:dish][:title])
+      .first
+
+    @dish = @table
+      .menus
+      .find(params[:menu_id])
+      .dishes
+      .new(params[:dish])
+
+    #
+    # Dup image with dish samples if title is the same
+    #
+    if !@dish_sample.nil?
+      @dish.image = @dish_sample.image
+    end
         
     if @dish.save
       dish_el = render_to_string(partial: 'dish_dashboard/dish_list_element', 
@@ -32,5 +65,15 @@ class DishDashboardController < ApplicationController
   end
 
   def destroy
+    @dish = @table
+      .menus
+      .find(params[:menu_id])
+      .dishes
+      .find(params[:dish_id])
+    @dish.destroy
+    
+    redirect_to table_dashboard_menu_edit_path, 
+                  :notice => t('notifications.dish.deleted')    
   end
+
 end

@@ -7,8 +7,11 @@ en:
     successfully_deleted : Successfully deleted !
     availabilities:
       must_create_menu : One menu, at least, must be created
+    dish:
+      deleted : Dish successfully deleted
     menu:
       updated: Successfully updated
       created : The menu was successfully created !
       max : You can't create more menus 
+    
       

@@ -7,6 +7,13 @@ class Menu < ActiveRecord::Base
 
   has_many :availabilities, :dependent => :destroy
 
+  # Paperclip (Image)
+  has_attached_file :main_image, :styles => { 
+    :table_page => "960x300#", 
+    :small => "300x150#",
+    :icon => "50x50#"
+  }
+
   class Category < Static::ReferenceData    
     DINER = 0
     BRUNCH = 1

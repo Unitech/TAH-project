@@ -1,2 +1,61 @@
-<h1>DishDashboard#edit</h1>
-<p>Find me in app/views/dish_dashboard/edit.html.erb</p>
+
+<% content_for :javascripts do %>
+  <script>
+    $().ready(function() {
+    TAH.clickTriggerUpload($('#trigger_upload_field'), $('#dish_image'));
+    });
+  </script>
+<% end %>
+
+
+<section>
+
+  <div class="page-header">
+    <h1>
+      <%= t('dish_dashboard.edit.title') %> 
+    </h1>
+  </div>
+
+  <ul class="breadcrumb">
+    <li>
+      <a href="<%= table_dashboard_manage_path %>">Table : <%= @table.title %></a> <span class="divider">/</span>
+    </li>
+    <li>
+      <a href="<%= table_dashboard_menu_edit_path %>">Menu</a> <span class="divider">/</span>
+    </li>
+    <li class="active">
+      Plat : <%= @dish.title %>
+    </li>
+  </ul>
+
+  <%= link_to 'Delete', table_dashboard_menu_dish_destroy_path, :method => 'delete', :style => 'color :red;', :confirm => "Confirm ?" %>
+  <br/><br/>
+
+
+  <div class="row">    
+    <div class="span6">
+      
+      <%= semantic_form_for @dish, :url => table_dashboard_menu_dish_update_path do |f| %>
+
+	<%# Image click handling %>
+	<%= f.input :image, :input_html => { :style => 'opacity : 0; position : absolute;'}  %>
+	<% if @dish.image.presence %>
+	  <%= image_tag @dish.image.url(:medium), :id => 'trigger_upload_field', :class => 'image-triggerable' %>
+	<% else %>
+	  <%= image_tag 'samples/food-sample-150.jpg', :id => 'trigger_upload_field', :class => 'image-triggerable' %>
+	<% end %>
+      <%# end %>
+      
+      <%= f.input :title %>
+      <%= f.input :description %>
+
+      <%= f.buttons do %>
+	<%= f.commit_button %>
+      <% end %>
+      
+<% end %>
+
+    </div>
+  </div>
+
+</section>

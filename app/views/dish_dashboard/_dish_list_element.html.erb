@@ -1,10 +1,24 @@
+
+<a href="<%= table_dashboard_menu_dish_edit_path(params[:table_id], params[:menu_id], dish.id) %>">
 <li class="each-dish" onclick="TAH.editDishInLine(<%= dish.id %>)">
-  <span id="title-dish">
-    <%= dish.title %>
-  </span>
-  <% if dish.main_image.presence %>
-    <span id="image-dish">
-      <%= dish.main_image.url(:small) %>
-    </span>
+  <% if dish.image.presence %>
+    <div id="image-dish">
+      <%= image_tag dish.image.url(:medium) %>
+    </div>
+  <% else %>
+    <div id="image-dish">
+      <%= image_tag 'samples/food-sample-150.jpg' %>
+    </div>
   <% end %>
+  
+  <div id="title-dish">
+    <%= dish.title %>
+  </div>
+
+  <!-- <div id="description-dish"> -->
+  <!--   <%= dish.description %> -->
+  <!-- </div> -->
+
+  
 </li>
+</a>
