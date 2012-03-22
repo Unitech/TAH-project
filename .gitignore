@@ -16,3 +16,5 @@
 
 public/assets/*
 public/system/*
+
+*.DS_Store

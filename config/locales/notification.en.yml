@@ -3,15 +3,15 @@ en:
   notifications:
     table_created : Table created !
     fail: Problem in the form
-    destroy : Are you sur to delete 
-    successfully_deleted : Successfully deleted !
+    destroy : Are you sure you want to delete the table
+    successfully_deleted : Successfully deleted!
     availabilities:
-      must_create_menu : One menu, at least, must be created
+      must_create_menu : One menu, at least, needs to be created
     dish:
       deleted : Dish successfully deleted
     menu:
       updated: Successfully updated
-      created : The menu was successfully created !
-      max : You can't create more menus 
+      created : The menu was successfully created!
+      max : You can't create more than 3 menus for a table 
     
       
