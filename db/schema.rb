@@ -74,9 +74,13 @@ ActiveRecord::Schema.define(:version => 20120309184528) do
     t.string   "title"
     t.text     "description"
     t.integer  "menu_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.integer  "position"
+    t.string   "main_image_file_name"
+    t.string   "main_image_content_type"
+    t.integer  "main_image_file_size"
+    t.datetime "main_image_updated_at"
     t.integer  "category"
     t.string   "image_file_name"
     t.string   "image_content_type"
