@@ -2,11 +2,6 @@ class User < ActiveRecord::Base
   # contrat a cocher
   # validates :terms_of_service, :acceptance => true
 
-  # 
-  # to move in observer
-  # 
-  after_initialize :init_user
-
   serialize :lang
 
   has_many :tables
@@ -26,20 +21,12 @@ class User < ActiveRecord::Base
                  :current_sign_in_ip,
                  :last_sign_in_ip
 
-  # type field
-  class Status < Static::ReferenceData
-    HOST = 0
-    GUEST = 1
-    HOST_N_GUEST = 2
-  end
-
   #
   # Validations
   #
   validates_presence_of :f_name
   validates_presence_of :l_name
   validates_presence_of :email
-  validates_presence_of :status
 
   def to_label
     "#{self.f_name} #{self.l_name}"
@@ -64,11 +51,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  protected
-  def init_user
-    self.status ||= User::Status::HOST
-  end
-
   # Get all users that have published a post
   # scope :published, lambda {
   #   joins("join posts on posts.author_id = users.id").
@@ -79,6 +61,7 @@ class User < ActiveRecord::Base
   # # Get all users that have commented on a post
   # scope :commented, joins("join comments on comments.user_id = users.id").group("users.id")
 end
+
 
 # == Schema Information
 #
@@ -91,7 +74,6 @@ end
 #  lang                   :text
 #  age                    :integer
 #  description            :text
-#  status                 :integer
 #  job                    :string(255)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null

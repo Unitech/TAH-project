@@ -6,7 +6,6 @@ Factory.define :user do |f|
   f.description { Faker::Lorem.paragraph }
   f.age { rand(21) + 4 }
   f.job { Faker::Lorem.words(1) }
-  f.status { rand(3) }
   f.password "secret"
   f.password_confirmation "secret"  
 end

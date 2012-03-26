@@ -16,6 +16,7 @@ describe Dish do
   end
 end
 
+
 # == Schema Information
 #
 # Table name: dishes
@@ -32,5 +33,9 @@ end
 #  main_image_file_size    :integer
 #  main_image_updated_at   :datetime
 #  category                :integer
+#  image_file_name         :string(255)
+#  image_content_type      :string(255)
+#  image_file_size         :integer
+#  image_updated_at        :datetime
 #
 

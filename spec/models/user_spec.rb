@@ -5,12 +5,6 @@ describe User do
   before(:each) do
     @user = Factory(:user)
   end
-  
-  it "right values for Status field" do
-    User::Status::HOST.should equal 0
-    User::Status::GUEST.should equal 1
-    User::Status::HOST_N_GUEST.should equal 2
-  end
 
   it "fails when wrong email" do
     lambda {
@@ -23,6 +17,7 @@ describe User do
   
 end
 
+
 # == Schema Information
 #
 # Table name: users
@@ -34,7 +29,6 @@ end
 #  lang                   :text
 #  age                    :integer
 #  description            :text
-#  status                 :integer
 #  job                    :string(255)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null

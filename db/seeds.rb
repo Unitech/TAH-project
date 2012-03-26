@@ -14,12 +14,10 @@ users = []
   users << User.create(:f_name => Faker::Name.first_name,
                        :l_name => Faker::Name.last_name, 
                        :email => Faker::Internet.email,
-                       :status => rand(3),
                        :password => '123456')
 end
 
 known = User.create(:f_name => 'Alex',
                     :l_name => 'Strzelewicz',
                     :email => 'strzel_a@epitech.eu',
-                    :status => User::Status::HOST_N_GUEST,
                     :password => '123456')
