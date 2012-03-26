@@ -1,1 +1,0 @@
-strzel-a@ubuntu-home.4006:1330984706
