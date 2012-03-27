@@ -3,7 +3,7 @@
 
   <%= f.input :title %>
   <%= f.input :category, :as => :select, :collection => Menu::Category.ordered_values, :default => 1 %>
-  <%= f.inputs :price, :participation_cooking, :description %>
+  <%= f.inputs :price, :participation_cooking, :description, :max_guests %>
   
   
   <%= f.buttons do %>

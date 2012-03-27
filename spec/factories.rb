@@ -11,14 +11,16 @@ Factory.define :user do |f|
 end
 
 Factory.define :table do |t|
+  t.association(:user)
   t.sequence(:title) { |n| "Title#{n}" }
   t.description { Faker::Lorem.paragraph }
 end
 
 Factory.define :menu do |m|
-  #m.price { rand(300) }
+  m.association(:table)
+  m.price { rand(MAX_PRICE_PER_GUEST) }
   m.description { Faker::Lorem.paragraph }
-  #m.category { rand(Menu::Category.size) }
+  m.category { rand(Menu::Category.size) }
   m.sequence(:title) { |n| "menu-#{n}" }
 end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326222820) do
+ActiveRecord::Schema.define(:version => 20120327142152) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1"
@@ -98,13 +98,14 @@ ActiveRecord::Schema.define(:version => 20120326222820) do
     t.text     "description"
     t.boolean  "participation_cooking"
     t.integer  "table_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "main_image_file_name"
     t.string   "main_image_content_type"
     t.integer  "main_image_file_size"
     t.datetime "main_image_updated_at"
     t.integer  "category"
+    t.integer  "max_guests",              :default => 10
   end
 
   add_index "menus", ["table_id"], :name => "index_menus_on_table_id"

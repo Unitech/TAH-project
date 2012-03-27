@@ -2,16 +2,8 @@
 en:
   activerecord:
     attributes_data:
-      user:
-        status_0 : Host
-        status_1 : Guest
-        status_2 : Host & Guest
       menu:
-        category_0 : Diner
-        category_1 : Brunch
-    # attributes:
-    #   user:
-    #     f_name: First name
-    #     l_name : Last Name
-    #     email : Email
-    #     status : SIisi
+        category_0: Dinner
+        category_1: Brunch
+        category_2: Lunch
+        category_3: Afternoon Tea

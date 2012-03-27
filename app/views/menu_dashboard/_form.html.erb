@@ -13,6 +13,7 @@
 
   <%= f.input :title %>
   <%= f.input :category, :as => :select, :collection => Menu::Category.ordered_values, :include_blank => false %>
+	<%= f.input :max_guests %>
   <%= f.input :price %>
   <%= f.input :participation_cooking %>
   <%= f.input :description, :as => :text, :input_html => { :rows => 20 } %>

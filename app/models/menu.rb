@@ -14,9 +14,11 @@ class Menu < ActiveRecord::Base
     :icon => "50x50#"
   }
 
-  class Category < Static::ReferenceData    
+  class Category < Static::ReferenceData
     DINER = 0
     BRUNCH = 1
+    LUNCH = 2
+    AFTERNOON_TEA = 3
   end
 
   #
@@ -31,7 +33,7 @@ class Menu < ActiveRecord::Base
 
   validates :price, 
             :numericality => true,
-            :inclusion => 1..3000,
+            :inclusion => 1..MAX_PRICE_PER_GUEST,
             :if => Proc.new { |menu| menu.price.presence }
  
   validates :category,
@@ -43,6 +45,10 @@ class Menu < ActiveRecord::Base
             :presence => true,
             :numericality => true
 
+  validates :max_guests, 
+            :numericality => true,
+            :inclusion => 1..MAX_GUESTS_PER_MENU,
+            :if => Proc.new { |menu| menu.max_guests.presence }
 
   # "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}" 
 
@@ -52,6 +58,7 @@ class Menu < ActiveRecord::Base
 
 
 end
+
 
 
 # == Schema Information
@@ -73,5 +80,6 @@ end
 #  main_image_file_size    :integer
 #  main_image_updated_at   :datetime
 #  category                :integer
+#  max_guests              :integer         default(10)
 #
 
