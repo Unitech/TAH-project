@@ -40,7 +40,6 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :home, t('navigation.home'), root_path
     primary.item :table_dashboard, t('navigation.table_dashboard'), table_dashboard_index_path
-    primary.item :table_view, t('navigation.table_sample'), table_view_sample_path
 
     primary.item :logout, t('navigation.logout'), destroy_user_session_path, :method => :delete, :if => Proc.new { user_signed_in? }
     primary.item :login, t('navigation.login'), user_session_path, :if => Proc.new { !user_signed_in? }    

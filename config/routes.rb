@@ -52,7 +52,6 @@ TAHProject::Application.routes.draw do
   #
   scope :controller => 'table_view', :path => '/table', :as => :table_view do
     get '/:table_id/show' => :show, :as => :show
-    get '/sample' => :table_sample, :as => :sample
   end
 
   #
