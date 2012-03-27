@@ -71,8 +71,11 @@ A thin and fast web server.
 ## [paperclip](https://rubygems.org/gems/paperclip)
 Paperclip is intended as an easy file attachment library for Active Record.
 You may also choose to store your files using Amazon's S3 service. To do so, include the aws-sdk gem.
-## [railroad](https://rubygems.org/gems/railroad)
-RailRoad generates models and controllers diagrams in DOT language for a Rails application.
+## [railroady](https://rubygems.org/gems/railroady)
+Ruby on Rails 3 model and controller UML class diagram generator. Originally based on the 'railroad' plugin and contributions of many others. (`sudo port install graphviz` before use!)
+Generate diagrams with command:
+
+	rake diagram:all
 ## [typus](https://rubygems.org/gems/typus)
 Ruby on Rails Admin Panel (Engine) to allow trusted users edit structured content.
 

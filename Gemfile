@@ -16,6 +16,7 @@ end
 group :development do
   gem 'guard-annotate'
   gem 'rails-footnotes', :git => 'https://github.com/josevalim/rails-footnotes.git'
+	gem 'railroady'
 end
 
 gem 'jquery-rails'
@@ -57,12 +58,12 @@ gem 'dynamic_sitemaps'
 gem 'thin'
 gem 'capistrano'
 
-gem "rspec-rails", :group => [:test, :development]
+gem 'rspec-rails', :group => [:test, :development]
 group :test do
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "guard-rspec"
-  gem "guard-spork"
-  gem "ffaker"
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'ffaker'
 end
 
