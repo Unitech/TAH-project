@@ -2,10 +2,10 @@
 <% content_for :javascripts do %>
   <script>
     $().ready(function() {
-    TAH.clickTriggerUpload($('#trigger_upload_field'), $('#table_main_image'));
+		table_img = $('#trigger_upload_field');
+		file_input = $('#table_main_image');
+    TAH.clickTriggerUpload(table_img, file_input);
     TAH.editTable();
-    
-    
     });
   </script>
 <% end %>

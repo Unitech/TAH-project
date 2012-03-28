@@ -1,18 +1,31 @@
 
 TAH = {};
 
-/*
- * el_triggered == button to click
- * upload_trigger == upload field
- */
-TAH.clickTriggerUpload = function(el_triggered, upload_trigger) {
-    $(el_triggered).attr('title', 'Upload');
-    $(el_triggered).click(function() {
-	$(upload_trigger).trigger('click');
-    });
-    $(upload_trigger).change(function() {
-	$('#trigger_upload_field').css({'opacity' : 0.2});
-    });
+
+var reader = new FileReader();
+
+TAH.previewImg = function(file_input_event, preview_img) {
+	// acceptable file types
+	var accept = ["image/png","image/jpeg","image/jpg","image/gif"];
+
+	var files = file_input_event.target.files;
+	// if we accept the file type
+	if (accept.indexOf(files[0].type) > -1) {
+		if (files && files[0]) {
+			reader.onload = function() { preview_img.attr('src', this.result); };
+			reader.readAsDataURL(files[0]);
+		}
+	}
+};
+
+
+TAH.clickTriggerUpload = function(preview_img, file_input) {
+    preview_img.bind('attr', 'title', 'Upload');
+    preview_img.bind('click', function() { file_input.trigger('click'); });
+    file_input.bind('change', function(file_input_event) {
+		preview_img.css({'opacity' : 0.2});
+		TAH.previewImg(file_input_event, preview_img);
+	});
 };
 
 /*

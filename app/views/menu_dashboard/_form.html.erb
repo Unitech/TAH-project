@@ -1,3 +1,12 @@
+<% content_for :javascripts do %>
+  <script>
+    $().ready(function() {
+		menu_img = $('#trigger_upload_field');
+		file_input = $('#menu_main_image');
+    TAH.clickTriggerUpload(menu_img, file_input);
+    });
+  </script>
+<% end %>
 
 <%= semantic_form_for menu, :url => table_dashboard_menu_update_path do |f| %>
   

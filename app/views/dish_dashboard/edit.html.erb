@@ -2,7 +2,9 @@
 <% content_for :javascripts do %>
   <script>
     $().ready(function() {
-    TAH.clickTriggerUpload($('#trigger_upload_field'), $('#dish_image'));
+		dish_img = $('#trigger_upload_field');
+		file_input = $('#dish_image');
+    TAH.clickTriggerUpload(dish_img, file_input);
     });
   </script>
 <% end %>
